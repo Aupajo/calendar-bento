@@ -1,0 +1,18 @@
+<% title 'Upcoming events' %>
+
+<div id="section-calendar">
+  <h2>Today</h2>
+  <% calendar.events_between(DateTime.now.beginning_of_day..DateTime.now.end_of_day).each do |event| %>
+    <%= erb :event, locals: { event: event } %>
+  <% end %>
+
+  <h2>Next <%= calendar.days_lookahead %> days</h2>
+  <% calendar.events_between(DateTime.now.end_of_day..30.days.from_now).each do |event| %>
+    <%= erb :event, locals: { event: event } %>
+  <% end %>
+</div>
+
+<div id="section-connect" class="hidden">
+  <h1>Connect <span>this calendar to your own</span></h1>
+  <p>Subscribe: <a href="<%= feed_url %>"><%= feed_url %></a> (Outlook, iCal, Google Calendar)</p>
+</div>

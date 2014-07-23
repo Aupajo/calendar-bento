@@ -1,0 +1,7 @@
+<div class="line-item">
+  <span class="day"><%= event.start_date.strftime('%a') %></span>
+  <span class="date"><%= event.start_date.strftime('%d %b') %></span>
+  <span class="time"><%= event.start_date.strftime('%l:%M%P') %></span>
+  <span class="group"><a href="<%= event.url %>"><%= event.title %></a></span>
+  <span class="location"><%= event.location %></span>
+</div>
