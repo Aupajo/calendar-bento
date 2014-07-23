@@ -8,10 +8,6 @@ Almanack.config do |c|
   c.title = "Event Calendar"
   c.theme = 'daves-theme'
 
-  # Keeping it secret by hiding behind an evironment variable.
-  # Grab yours from https://secure.meetup.com/meetup_api/key
-  meetup_key = ENV['MEETUP_KEY']
-
   groups = %w(
     WellingtonPhotographyMeetupGroup
     WelliDotNet
