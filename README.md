@@ -19,7 +19,7 @@ meetup_api_key: ...
 
 You can retrieve your API key [from Meetup.com](https://secure.meetup.com/meetup_api/key).
 
-Finally, run the following to start a local server:
+Finally, run the following inside the `calendar-bento` directory to start a local server:
 
     almanack start
 
