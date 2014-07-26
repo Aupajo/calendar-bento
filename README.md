@@ -10,4 +10,17 @@ With [Ruby 2.0 or greater](https://www.ruby-lang.org/en/installation/) installed
 
     gem install bundler
     bundle install
+
+This will fetch any dependencies needed. Next, create a file called `config.yml` with the following:
+
+```yaml
+meetup_api_key: ...
+```
+
+You can retrieve your API key [from Meetup.com](https://secure.meetup.com/meetup_api/key).
+
+Finally, run the following to start a local server:
+
     almanack start
+
+Press CTRL-C to quit.
