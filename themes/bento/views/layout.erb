@@ -14,13 +14,13 @@
   </head>
   <body>
 
-    <header class="site-width">
-  		<h1><a href="javascript:;">Event Calendar</a></h1>
+    <header class="site-width" role="banner">
+  		<h1>Event Calendar</h1>
 
-  		<nav>
-  			<ul>
-  				<li><a href="javascript:;" id="calendar" class="active">Calendar</a></li>
-  				<li><a href="javascript:;" id="connect" class="">Connect</a></li>
+  		<nav role="navigation">
+  			<ul role="tablist">
+  				<li role="presentation"><a href="#" id="calendar" class="active" role="tab" aria-controls="section-calendar" aria-selected="true">Calendar</a><span class="divider" aria-hidden="true"></span></li>
+  				<li role="presentation"><a href="#" id="connect" class="" role="tab" aria-controls="section-connect" aria-selected="false">Connect</a></li>
   			</ul>
   		</nav>
 
@@ -28,11 +28,11 @@
       <!-- <%= erb :graph %> -->
     </header>
 
-    <section class="site-width">
-    	<%= yield %>
-    </section>
+    <main class="site-width" role="main">
+    	 <%= yield %>
+    </main>
 
-    <footer class="site-width">
+    <footer class="site-width" role="contentinfo">
     </footer>
   </body>
 </html>
