@@ -8,7 +8,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
-    almanack (1.0.1)
+    almanack (1.0.2)
       addressable
       ri_cal
       sass
@@ -26,7 +26,7 @@ GEM
     rack-test (0.6.2)
       rack (>= 1.0)
     ri_cal (0.8.8)
-    sass (3.3.10)
+    sass (3.3.11)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
