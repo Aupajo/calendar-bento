@@ -17,6 +17,10 @@ body {
     padding-right: 50px;
 }
 
+.hidden {
+    display: none
+}
+
 header {
     background-color: #900;
     padding-top: 33px;
@@ -24,6 +28,7 @@ header {
 }
 
 header h1 {
+    color: #fff;
     margin: 0;
     font-size: 42px;
     text-indent: -4px;
@@ -53,9 +58,9 @@ header nav ul li {
     float: left;
 }
 
-header nav ul li:after {
+header nav ul li span.divider:after {
     content: "//";
-    color: #cc7f7f;
+    color: #e3aaaa;
     font-size: 19px;
 }
 
@@ -241,10 +246,14 @@ header .calendar-graph .six-months .month .title-year {
     top: 98px;
 }
 
+main {
+    background-color: #fff;
+    padding-bottom: 35px;
+}
+
 section {
     background-color: #fff;
     padding-top: 15px;
-    padding-bottom: 35px;
     overflow: auto;
 }
 
@@ -269,8 +278,6 @@ section h2 {
 }
 
 section h2 span {
-    font-size: 13px;
-    font-weight: normal;
     color: #333;
 }
 
@@ -394,12 +401,6 @@ section .option .checkbox {
 footer {
     background-color: #900;
     height: 10px;
-}
-
-header .hidden,section .hidden {
-    height: 0;
-    opacity: 0;
-    overflow: hidden;
 }
 
 a {

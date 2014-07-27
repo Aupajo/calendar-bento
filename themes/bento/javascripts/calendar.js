@@ -4,12 +4,12 @@ $(function() {
 			return false
 		}
 		else {
-			$("#calendar").addClass("active");
+			$("#calendar").addClass("active").attr("aria-selected", "true");
 			if ($('#customise').hasClass('active')) {
 				$("#customise").removeClass("active");
 			}
 			if ($('#connect').hasClass('active')) {
-				$("#connect").removeClass("active");
+				$("#connect").removeClass("active").attr("aria-selected", "false");
 			}
 			$("#section-calendar").removeClass("hidden");
 			$("#section-customise").addClass("hidden");
@@ -24,10 +24,10 @@ $(function() {
 		else {
 			$("#customise").addClass("active");
 			if ($('#calendar').hasClass('active')) {
-				$("#calendar").removeClass("active");
+				$("#calendar").removeClass("active").attr("aria-selected", "false");
 			}
 			if ($('#connect').hasClass('active')) {
-				$("#connect").removeClass("active");
+				$("#connect").removeClass("active").attr("aria-selected", "false");
 			}
 			$("#section-calendar").addClass("hidden");
 			$("#section-customise").removeClass("hidden");
@@ -40,12 +40,12 @@ $(function() {
 			return false
 		}
 		else {
-			$("#connect").addClass("active");
+			$("#connect").addClass("active").attr("aria-selected", "true");
 			if ($('#calendar').hasClass('active')) {
-				$("#calendar").removeClass("active");
+				$("#calendar").removeClass("active").attr("aria-selected", "false");
 			}
 			if ($('#customise').hasClass('active')) {
-				$("#customise").removeClass("active");
+				$("#customise").removeClass("active").attr("aria-selected", "false");
 			}
 			$("#section-calendar").addClass("hidden");
 			$("#section-customise").addClass("hidden");
