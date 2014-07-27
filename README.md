@@ -23,4 +23,6 @@ Finally, run the following inside the `calendar-bento` directory to start a loca
 
     almanack start
 
+By default, the server will start on http://localhost:9292/
+
 Press CTRL-C to quit.
