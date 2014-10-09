@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			styles: {
-				files: 'sass/**/*.scss',
+				files: 'stylesheets/**/*.scss',
 				tasks: ['sass'],
 				options: {
 					debounceDelay: 250
