@@ -1,0 +1,598 @@
+/* normalize.css v2.1.0 | MIT License | git.io/normalize */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block;
+}
+
+audio, canvas, video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden] {
+  display: none;
+}
+
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:active, a:hover {
+  outline: 0;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+dfn {
+  font-style: italic;
+}
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+code, kbd, pre, samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+small {
+  font-size: 80%;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+img {
+  border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+figure {
+  margin: 0;
+}
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+}
+
+button, input {
+  line-height: normal;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled], html input[disabled] {
+  cursor: default;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Colours */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background: #900;
+  -webkit-font-smoothing: antialiased;
+}
+
+.site-width {
+  width: 100%;
+  min-width: 750px;
+  margin: 0 auto;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.hidden {
+  display: none;
+}
+
+header {
+  background-color: #900;
+  padding-top: 33px;
+  padding-bottom: 15px;
+}
+
+header h1 {
+  color: #fff;
+  margin: 0;
+  font-size: 42px;
+  text-indent: -4px;
+  text-shadow: 0 -1px 1px #6e0000;
+}
+
+header a {
+  color: #fff;
+}
+
+header nav {
+  border-bottom: 1px solid #cc7f7f;
+  margin: 8px 0 4px 0;
+  overflow: visible;
+  height: 42px;
+  position: relative;
+}
+
+header nav ul {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+header nav ul li {
+  list-style-type: none;
+  float: left;
+}
+
+header nav ul li span.divider:after {
+  content: "//";
+  color: #e3aaaa;
+  font-size: 19px;
+}
+
+header nav ul li:last-child:after {
+  content: "";
+}
+
+header nav ul li a {
+  display: inline-block;
+  font-size: 18px;
+  padding: 10px 0;
+  margin: 0 15px;
+}
+
+header nav ul li a.active, header nav ul li a:hover {
+  border-bottom: 5px solid #fff;
+}
+
+header nav ul li:first-child a {
+  margin-left: 0;
+}
+
+header nav input {
+  position: absolute;
+  bottom: -1px;
+  right: 0;
+  background-color: #900;
+  border: 1px solid #900;
+  border-bottom-color: #fff;
+  font-size: 18px;
+  color: #fff;
+  padding: 10px 20px 10px 0;
+  width: 245px;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+header nav input:focus {
+  outline: none;
+}
+
+header nav ::-webkit-input-placeholder {
+  color: #fff;
+}
+
+header nav ::-moz-placeholder {
+  color: #fff;
+}
+
+header nav :-ms-input-placeholder {
+  color: #fff;
+}
+
+header nav .search-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: block;
+  width: 30px;
+  height: 40px;
+  background: url("/search.png") center right no-repeat;
+}
+
+header .calendar-graph {
+  height: 150px;
+  opacity: 1;
+  clear: both;
+  transition-property: height, opacity;
+  transition-duration: 0.25s, 0.25s;
+  transition-delay: 0s, 0.1s;
+  -webkit-transition-property: height, opacity;
+  -webkit-transition-duration: 0.25s, 0.25s;
+  -webkit-transition-delay: 0s, 0.1s;
+}
+
+header .calendar-graph .six-months {
+  overflow: auto;
+  padding-top: 10px;
+}
+
+header .calendar-graph .six-months .month {
+  float: left;
+  height: 120px;
+  width: 14.2857%;
+  position: relative;
+}
+
+header .calendar-graph .six-months .month:hover, header .calendar-graph .six-months .month.active {
+  background: #fff;
+}
+
+header .calendar-graph .six-months .month:hover .title-month, header .calendar-graph .six-months .month:hover .title-year, header .calendar-graph .six-months .month.active .title-month, header .calendar-graph .six-months .month.active .title-year {
+  color: #900;
+}
+
+header .calendar-graph .six-months .month:hover .axis, header .calendar-graph .six-months .month:hover .bar, header .calendar-graph .six-months .month.active .axis, header .calendar-graph .six-months .month.active .bar {
+  background-color: #900;
+}
+
+header .calendar-graph .six-months .month:hover:before, header .calendar-graph .six-months .month.active:before {
+  background-color: #fff;
+}
+
+header .calendar-graph .six-months .month:hover:last-child:after, header .calendar-graph .six-months .month.active:last-child:after {
+  background-color: #fff;
+}
+
+header .calendar-graph .six-months .month:before {
+  content: "";
+  position: absolute;
+  top: 65px;
+  left: 0;
+  width: 1px;
+  height: 10px;
+  background-color: #cc7f7f;
+}
+
+header .calendar-graph .six-months .month:first-child:before {
+  top: 55px;
+  height: 55px;
+}
+
+header .calendar-graph .six-months .month:last-child:after {
+  content: "";
+  position: absolute;
+  top: 55px;
+  right: 0;
+  width: 1px;
+  height: 55px;
+  background-color: #cc7f7f;
+}
+
+header .calendar-graph .six-months .month .axis {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #cc7f7f;
+}
+
+header .calendar-graph .six-months .month .bar {
+  position: absolute;
+  height: 50px;
+  width: 10%;
+  bottom: 50px;
+  left: 12%;
+  background-color: #cc7f7f;
+}
+
+header .calendar-graph .six-months .month .bar.two {
+  left: 29%;
+  height: 20px;
+}
+
+header .calendar-graph .six-months .month .bar.three {
+  left: 46%;
+  height: 40px;
+}
+
+header .calendar-graph .six-months .month .bar.four {
+  left: 63%;
+  height: 10px;
+}
+
+header .calendar-graph .six-months .month .bar.five {
+  left: 80%;
+  height: 30px;
+}
+
+header .calendar-graph .six-months .month .title-month, header .calendar-graph .six-months .month .title-year {
+  position: absolute;
+  top: 78px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+header .calendar-graph .six-months .month .title-year {
+  top: 98px;
+}
+
+main {
+  background-color: #fff;
+  padding-bottom: 35px;
+}
+
+section {
+  background-color: #fff;
+  padding-top: 15px;
+  overflow: auto;
+}
+
+section h1 {
+  font-size: 32px;
+  border-bottom: 1px solid #ccc;
+  margin: 6px 0 8px 0;
+  padding: 16px 0;
+}
+
+section h1 span {
+  color: #9a9a9a;
+}
+
+section h2 {
+  font-size: 18px;
+  margin: 0;
+  padding: 30px 0 10px 0;
+  color: #900;
+  clear: both;
+  border-bottom: 1px solid #ccc;
+}
+
+section h2 span {
+  color: #333;
+}
+
+section .hero {
+  margin: -15px 0 0 -50px;
+}
+
+section a {
+  color: #900;
+}
+
+section a.done {
+  font-size: 32px;
+  color: #9a9a9a;
+  font-weight: bold;
+  text-transform: lowercase;
+  float: right;
+  clear: both;
+  padding: 0 30px 6px 0;
+  margin-top: 15px;
+  background: url("/cross.png") center right no-repeat;
+}
+
+section a.done.top {
+  margin-top: -62px;
+}
+
+section .line-item {
+  font-size: 14px;
+  line-height: 40px;
+  overflow: auto;
+}
+
+section .line-item span {
+  float: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #676767;
+  border-bottom: 1px solid #efefef;
+}
+
+section .line-item span a {
+  font-weight: bold;
+}
+
+section .line-item .day {
+  width: 4%;
+  font-weight: bold;
+}
+
+section .line-item .date {
+  width: 8%;
+  color: #191919;
+  font-weight: bold;
+}
+
+section .line-item .time {
+  width: 8%;
+}
+
+section .line-item .group {
+  width: 50%;
+  padding-right: 5px;
+}
+
+section .line-item .location {
+  width: 26%;
+  text-align: right;
+}
+
+section .multi .day, section .multi .date {
+  border-bottom-color: #fff;
+  text-indent: -9999em;
+}
+
+section .multi.first .day, section .multi.first .date {
+  text-indent: 0;
+}
+
+section .multi.last .day, section .multi.last .date {
+  border-bottom-color: #efefef;
+}
+
+section .option {
+  font-size: 14px;
+  line-height: 40px;
+  border-bottom: 1px solid #efefef;
+  width: 33.3333%;
+  float: left;
+  overflow: auto;
+}
+
+section .option.all {
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+}
+
+section .option.all span {
+  font-weight: bold;
+}
+
+section .option span {
+  float: left;
+  width: 85%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #333;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+section .option .checkbox {
+  width: 30px;
+  font-size: 16px;
+}
+
+footer {
+  background-color: #900;
+  height: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  header nav ul li a {
+    padding-bottom: 9px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .site-width {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  header nav ul li a {
+    padding-bottom: 9px;
+  }
+}
