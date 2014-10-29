@@ -1,0 +1,40 @@
+/**
+ * CONTENTS
+ *
+ * Holder................Any container specific styles we need
+ * Axis..................Details to do with the resulting SVG axis
+ */
+
+/*------------------------------------*\
+    #HOLDER
+\*------------------------------------*/
+.graphHolder {
+    height: 60px; // TODO: variable? Not 100% if we even need to explicitly set a height here.
+}
+
+
+/*------------------------------------*\
+    #AXIS
+
+    1.  Again, I'm not a fan of nesting here. However, all of this is so tied to the d3 script
+        that extensibility is kind of a sore topic anyway.
+    2.  The graph is currently only used in the header. I'll assume colours for this here based
+        on the comment for 1.
+\*------------------------------------*/
+.axis {
+    line, path { /* 1. */
+        fill: none;
+        shape-rendering: crispEdges;
+        stroke: $headerSecondary; /* 2. */
+    }
+
+    text {
+        display: none;
+    }
+}
+
+.axisLabel {
+    fill: $headerText;
+    font-size: $bodyTextSize - 2;
+    text-transform: uppercase;
+}
