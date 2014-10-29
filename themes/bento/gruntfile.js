@@ -18,12 +18,33 @@ module.exports = function(grunt) {
 				options: {
 					debounceDelay: 250
 				}
+			},
+			scripts: {
+				files: 'javascripts/**/*.js',
+				tasks: ['concat'],
+				options: {
+					debounceDelay: 250
+				}
+			}
+		},
+		concat: {
+			options: {
+				separator: ';',
+			},
+			scripts: {
+				src: ['javascripts/dev/*.js'],
+				dest: 'javascripts/dist/script.js',
+			},
+			libs: {
+				src: ['javascripts/dev/libs/*.js'],
+				dest: 'javascripts/dist/libs.js',
 			}
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-concat');
 
-	grunt.registerTask('default', ['sass']);
+	grunt.registerTask('default', ['sass', 'concat']);
 };

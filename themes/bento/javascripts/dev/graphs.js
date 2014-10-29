@@ -353,7 +353,7 @@ $(function() {
             .attr("x", function(d) { return x(returnDate(d)); })
             .attr("width", x.rangeBand())
             // Note: below the -1 creates a 1px gap between the axis the bar
-            .attr("y", function(d) { debugger; return containerElHeight - lineHeight - 1 - y(d.count); })
+            .attr("y", function(d) { return containerElHeight - lineHeight - 1 - y(d.count); })
             .attr("height", function(d) { return y(d.count) || 0; })
             .attr('class', 'graphBar');
 
