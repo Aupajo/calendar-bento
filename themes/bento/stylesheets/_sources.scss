@@ -1,0 +1,121 @@
+/**
+ * CONTENTS
+ *
+ * Container.............The container for the sources grid
+ * Text..................Any text differentiators for the sources
+ * Cells.................All the details for the source options
+ * Checks................The custom checkboxes/labels for the event sources
+ */
+
+/*------------------------------------*\
+    #CONTAINER
+\*------------------------------------*/
+ .sources {
+    padding: 10px 0;
+    position: relative;
+}
+
+/*------------------------------------*\
+    #TEXT
+\*------------------------------------*/
+.sourcesTitle {
+    border-bottom: 1px solid $secondary;
+    font-family: $helvetica;
+    font-size: $betaTextSize - 2;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.sourcesSelected {
+    font-size: $bodyTextSize;
+}
+
+/*------------------------------------*\
+    #CELLS
+
+    1.  Reasonable complex nth-child combinations that will take care of any number
+        of cells, provided they are always displayed in groups of three. All styles
+        listed here need to be modified for any media queries in use (provided the
+        queries requires these to be modified - currently hinges on the responsive grid
+        from Pure in grid.scss
+\*------------------------------------*/
+.sourcesGridCell {
+    border-bottom: 1px solid $secondary;
+    height: $sourcesCellHeight;
+    position: relative;
+
+    &:nth-child(1), &:nth-child(2), &:nth-child(3) { /* 1. */
+        border-top: 1px solid $secondary;
+    }
+
+    &:nth-child(3n), &:nth-child(3n - 1) {
+        border-right: 1px solid $secondary;
+    }
+
+    &:nth-child(3n) {
+        border-right: 1px solid $secondary;
+    }
+
+    &:nth-child(3n - 2) {
+        border-left: 1px solid $secondary;
+        border-right: 1px solid $secondary;
+    }
+
+    /* Ensure that we always have a right border on the final cell */
+    &:last-child {
+        border-right: 1px solid $secondary;
+    }
+}
+
+/*------------------------------------*\
+    #CHECKS
+
+    1.  I'm using a hidden checkbox in the markup to determine the display state of this
+        sibling class.
+    2.  `sourcesCheckDisplay-circle` follows a similar structure. The only real difference
+        is the display image
+\*------------------------------------*/
+
+$dimension: $sourcesCellHeight - 2; /* Minus 2 for the border of the cell */
+$negDimension: $dimension * -1;
+
+.sourcesCheckDisplay {
+    height: $dimension;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: $dimension;
+
+    &-circle {
+        top: $dimension + 10;
+    }
+}
+
+.sourcesCheck + .sourcesCheckDisplay { /* 1. */
+    background: transparent url('../public/checkbox.png') $negDimension top no-repeat;
+
+    &-circle {
+        background: transparent url('../public/checkbox.png') $negDimension $negDimension no-repeat;
+    }
+}
+
+.sourcesCheck:checked + .sourcesCheckDisplay {
+    background: transparent url('../public/checkbox.png') left top no-repeat;
+
+    &-circle { /* 2. */
+        background: transparent url('../public/checkbox.png') left $negDimension no-repeat;
+    }
+}
+
+.sourcesCheck:checked ~ .sourcesLabel {
+    color: $text;
+}
+
+.sourcesLabel {
+    color: lighten($text, 30%);
+    display: block;
+    font-size: $bodyTextSize;
+    line-height: $sourcesCellHeight;
+    padding-left: 45px;
+    width: 100%;
+}
