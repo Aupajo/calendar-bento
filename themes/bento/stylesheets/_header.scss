@@ -1,0 +1,43 @@
+/**
+ * CONTENTS
+ *
+ * Base..................Header container styles
+ * Text/components.......Styles for the things that will only live within the header
+ */
+
+/*------------------------------------*\
+    #BASE
+
+    I have the same thoughts here about the overly broad class name as I did with the
+    `.footer` class. Let's ignore this for now
+\*------------------------------------*/
+.header {
+    background-color: $primary;
+    color: $headerText;
+    padding-bottom: 15px;
+    padding-top: 20px;
+
+    a {
+        color: $headerText;
+    }
+}
+
+/*------------------------------------*\
+    #TEXT/COMPONENTS
+\*------------------------------------*/
+.headerTitle {
+    color: $headerText;
+    font-family: $megaphone;
+    font-size: $alphaTextSize + 15;
+    font-weight: 100;
+    letter-spacing: 1px;
+    margin: 0;
+    text-indent: -4px;
+    text-shadow: 0 -1px 1px darken($primary, 10%);
+}
+
+.headerLink {
+    color: $headerText;
+    font-weight: bold;
+    text-decoration: underline;
+}

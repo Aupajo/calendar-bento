@@ -1,0 +1,45 @@
+/**
+ * CONTENTS
+ *
+ * Base..................Styles all buttons share
+ * Primary...............A button signalling a primary action
+ * Secondary.............A button signalling a secondary action
+ */
+
+/*------------------------------------*\
+    #BASE
+
+    1.  By default all the buttons have a small margin to either side. If the design
+        changes where this padding should be removed, you'll probably want to create
+        classes that just deal with the left and right margins instead of overriding
+        the margin property here.
+\*------------------------------------*/
+.button {
+    border-radius: $borderRadius - 2;
+    display: inline-block;
+    font-size: $cappaTextSize;
+    line-height: $cappaTextSize;
+    margin: 0 5px; /* [1] */
+    padding: $buttonPadding;
+}
+
+/*------------------------------------*\
+    #PRIMARY
+\*------------------------------------*/
+.button-primary {
+    background-color: $buttonPrimaryColor;
+    border: 1px solid $buttonPrimaryColor;
+    color: $buttonPrimaryText;
+    font-weight: bold;
+    padding-left: $buttonPrimaryPadding;
+    padding-right: $buttonPrimaryPadding;
+}
+
+/*------------------------------------*\
+    #SECONDARY
+\*------------------------------------*/
+.button-secondary {
+    background-color: $buttonColor;
+    border: 1px solid $borderBorderColor;
+    color: $buttonText;
+}

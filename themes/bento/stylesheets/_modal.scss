@@ -1,0 +1,67 @@
+
+/**
+ * CONTENTS
+ *
+ * Container.............The styles for the modal's main container
+ * Inner.................All the bits that sit inside the container
+ */
+
+ /*------------------------------------*\
+     #CONTAINER
+ \*------------------------------------*/
+.modalContainer {
+    background-color: $modalContainerBackground;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+
+/*------------------------------------*\
+    #INNER
+\*------------------------------------*/
+.modal {
+    background-color: $modalBackground;
+    border-radius: $borderRadius;
+    box-shadow: 0 2px 2px 1px darken($secondary, 40%);
+    left: 50%;
+    margin-left: ($maxWidth / 2) * -1;
+    overflow: hidden; /* Hide the sbox shadow of the footer */
+    padding: 20px;
+    position: relative;
+    top: 50px;
+    width: $maxWidth;
+}
+
+.modalHeader {
+    margin-bottom: 20px;
+}
+
+.modalTitle {
+    font-size: $alphaTextSize;
+    margin: 0;
+}
+
+.modalBody {
+    max-height: $modalMaxHeight;
+    overflow-y: scroll;
+}
+
+.modalFooter {
+    border-radius: 0 0 $borderRadius $borderRadius;
+    bottom: -20px;
+    box-shadow: 0 0 5px 0 $secondary;
+    height: 70px;
+    left: -20px;
+    position: relative;
+    width: $maxWidth;
+}
+
+.modalFooter--buttonHolder {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
