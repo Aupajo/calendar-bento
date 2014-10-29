@@ -194,7 +194,9 @@ $(function() {
                 .map(buildDayData).value(),
             count: m.length,
             dateKey: firstItem.startDate.format('YYMM'),
-            dateLabel: firstItem.startDate.format('MMM')
+            dateLabel: firstItem.startDate.format('MMM'),
+            month: firstItem.startDate.format('MM'),
+            year: firstItem.startDate.format('YYYY')
         }
     }
 
@@ -236,7 +238,7 @@ $(function() {
             var dateArray = [];
 
             for (var i = 1, len = daysInMonth(); i <= len; i++) {
-                currentDate = new moment('2014-09-' + i);
+                currentDate = new moment([month.year, '-', month.month, '-', i].join(''));
                 currentData = findDay(currentDate.format('MMDD'), month);
                 if (currentData) {
                     dateArray.push({
