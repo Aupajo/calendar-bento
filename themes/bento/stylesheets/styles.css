@@ -981,6 +981,44 @@ p {
 /**
  * CONTENTS
  *
+ * Holder................Any container specific styles we need
+ * Axis..................Details to do with the resulting SVG axis
+ */
+/*------------------------------------*\
+    #HOLDER
+\*------------------------------------*/
+.graphHolder {
+  height: 60px;
+}
+
+/*------------------------------------*\
+    #AXIS
+
+    1.  Again, I'm not a fan of nesting here. However, all of this is so tied to the d3 script
+        that extensibility is kind of a sore topic anyway.
+    2.  The graph is currently only used in the header. I'll assume colours for this here based
+        on the comment for 1.
+\*------------------------------------*/
+.axis line, .axis path {
+  /* 1. */
+  fill: none;
+  shape-rendering: crispEdges;
+  stroke: #ed7d6c;
+  /* 2. */
+}
+.axis text {
+  display: none;
+}
+
+.axisLabel {
+  fill: white;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+/**
+ * CONTENTS
+ *
  * Text..................Text styles that are only relevant to the events
  * Line item.............Lineitem layout
  * LIne item details.....Styling of meta data within a line item
