@@ -1,0 +1,11 @@
+/*
+ * Contains shared classes that can be easily reused for setting out layouts of
+ * elements
+ */
+
+/* The content holder for the different pieces of the layout */
+.l-mainContent {
+    margin: 0 auto;
+    max-width: $maxWidth;
+    position: relative;
+}

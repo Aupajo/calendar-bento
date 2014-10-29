@@ -1,0 +1,22 @@
+/* Base text setup */
+h1, h2, h3 {
+    color: $text;
+    font-family: $megaphone;
+    font-weight: 100;
+}
+
+h1 {
+    font-size: $alphaTextSize;
+}
+
+h2 {
+    font-size: $betaTextSize;
+}
+
+h3 {
+    font-size: $cappaTextSize;
+}
+
+p {
+    font-size: $bodyTextSize;
+}
