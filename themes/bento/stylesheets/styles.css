@@ -999,6 +999,11 @@ p {
     2.  The graph is currently only used in the header. I'll assume colours for this here based
         on the comment for 1.
 \*------------------------------------*/
+.graphDivider {
+  stroke: #ed7d6c;
+  /* 2. */
+}
+
 .axis line, .axis path {
   /* 1. */
   fill: none;
@@ -1007,6 +1012,10 @@ p {
   /* 2. */
 }
 .axis text {
+  display: none;
+}
+
+.axis-hideTicks .tick {
   display: none;
 }
 

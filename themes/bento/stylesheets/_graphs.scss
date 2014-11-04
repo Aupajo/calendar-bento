@@ -21,6 +21,11 @@
     2.  The graph is currently only used in the header. I'll assume colours for this here based
         on the comment for 1.
 \*------------------------------------*/
+
+.graphDivider {
+    stroke: $headerSecondary; /* 2. */
+}
+
 .axis {
     line, path { /* 1. */
         fill: none;
@@ -29,6 +34,12 @@
     }
 
     text {
+        display: none;
+    }
+}
+
+.axis-hideTicks {
+    .tick {
         display: none;
     }
 }
