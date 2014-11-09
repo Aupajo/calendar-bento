@@ -270,17 +270,27 @@ $(function() {
 
         /* Returns days of events grouped into 5 blocks  */
         function buildOutBlocks(month) {
-            function daysInMonth() {
-                //Currently assume that there is data here - TODO: change this
-                return moment(month.data[0].date).daysInMonth();
+            /* Returns how many days are in a given month via a date object */
+            function daysInMonth(date) {
+              if (!date) {
+                return 0;
+              }
+
+              return moment(date).daysInMonth();
             }
 
+            /* Creates an array of objects that are used to contain all the events grouped
+               into subsets of a month. This function requires which month the dates are for
+               as well as which year it is to generate the correct subset of dates in the
+               return array. */
             function createBlockArray(blockNum, monthDigits, yearDigits, monthLenth) {
                 var arr = [],
                     day;
 
                 for (var i = 0; i < blockNum; i++) {
                     day = Math.floor(((i + 1) / blockNum) * monthLength);
+
+                    // Default count to 0 for if we never add any more events to the returned array
                     arr.push({
                         count: 0,
                         date: new Date([yearDigits, '-', monthDigits, '-', day].join(''))
@@ -290,9 +300,9 @@ $(function() {
                 return arr;
             }
 
-            var numberOfBlocks = 5,
+            var numberOfBlocks = 5, // How many groups of events the month has
                 firstDate = moment(month.data[0].date),
-                monthLength = daysInMonth(),
+                monthLength = daysInMonth(firstDate),
                 monthDigits = firstDate.format('MM'),
                 yearDigits = firstDate.format('YYYY'),
                 dateArray = createBlockArray(numberOfBlocks, monthDigits, yearDigits, monthLength),
@@ -300,7 +310,9 @@ $(function() {
                 curentDayFormat,
                 blockIndex;
 
-
+            // Sort out all the given month event data into their correct block. The only edge case
+            // here is the last day of the month which we always want at length - 1 (because of the 0
+            // base index of the array).
             for (var i = 0, len = month.data.length; i < len; i++) {
                 currentDay = month.data[i];
                 currentDayFormat = parseInt(moment(currentDay.date).format('DD'));
@@ -308,6 +320,7 @@ $(function() {
                 if (currentDayFormat === monthLength) {
                     blockIndex = numberOfBlocks - 1;
                 } else {
+                    // Get percentage where the day is. Reduce it down to a usable number.
                     blockIndex = Math.floor((moment(currentDay.date).format('DD') / monthLength) * numberOfBlocks);
                 }
 
@@ -329,6 +342,8 @@ $(function() {
             smallGraphWidth = 60,
             largeGraphWidth = (containerElWidth - (numberOfSmallGraphs * smallGraphWidth)) / 2;
 
+        // Map our data over the correct function. Either block or month (TODO - add in 'More' block
+        // here too. Needed for data with > 6 months worth of info)
         return monthData.map(function(month, index) {
             var completeMonth = index < 2 ? buildOutMonth(month) : buildOutBlocks(month),
                 width = index < 2 ? largeGraphWidth : smallGraphWidth,
@@ -349,6 +364,7 @@ $(function() {
 
     }
 
+    // Sort and group all our data into to the correct format
     var sortedDates = _.chain(data)
         .map(createStartDate)
         .sortBy(function(d) {
@@ -362,11 +378,11 @@ $(function() {
             })
         .groupBy(groupByMonth)
         .map(buildMonthData).value(),
-
         numberOfMonths = sortedDates.length;
 
     var graphData = buildMultigraphData(sortedDates);
 
+    // Create each graph
     graphData.forEach(function(month, index, graphData) {
         month.index = index;
         month.totalMonths = graphData.length;
