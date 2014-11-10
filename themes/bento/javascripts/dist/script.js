@@ -1,158 +1,95 @@
 $(function() {
     // D3 - demo data
-    var data = [
+    var data = {
+      "eventSources": [
         {
-            "startTime": "2014-09-01 18:00",
-            "group": "CSS Meetup",
-            "title": "Drill #2: Packaging Design",
-            "location": "Empathy Office"
-        }, {
-            "startTime": "2014-09-12 18:00",
-            "group": "CSS Meetup",
-            "title": "Drill #2: Packaging Design",
-            "location": "Empathy Office"
-        }, {
-            "startTime": "2014-09-14 8:00",
-            "group": "Design & Thinking",
-            "title": "Let's meet up and chat about design",
-            "location": "Trade Kitchen"
-        }, {
-            "startTime": "2014-09-14 18:30",
-            "group": "UX Wellington",
-            "title": "Service Design Special",
-            "location": "One Red Dog"
-        }, {
-            "startTime": "2014-09-14 20:00",
-            "group": "Design Cinema",
-            "title": "Indie Game: The Movie",
-            "location": "Light House Cuba"
-        }, {
-            "startTime": "2014-09-19 18:30",
-            "group": "Creative Tools Meetup",
-            "title": "InDesign 101 - 102",
-            "location": "Youbee School"
-        }, {
-            "startTime": "2014-09-19 18:00",
-            "group": "UX Bookclub",
-            "title": "Don't Make Me Think: Steve Krug",
-            "location": "Southern Cross"
-        }, {
-            "startTime": "2014-09-25 20:00",
-            "group": "Design Cinema",
-            "title": "PressPausePlay",
-            "location": "Light House Cuba"
-        }, {
-            "startTime": "2014-10-12 18:00",
-            "group": "CSS Meetup",
-            "title": "Drill #2: Packaging Design",
-            "location": "Empathy Office"
-        }, {
-            "startTime": "2014-10-14 8:00",
-            "group": "Design & Thinking",
-            "title": "Let's meet up and chat about design",
-            "location": "Trade Kitchen"
-        }, {
-            "startTime": "2014-10-14 18:30",
-            "group": "UX Wellington",
-            "title": "Service Design Special",
-            "location": "One Red Dog"
-        }, {
-            "startTime": "2014-10-14 20:00",
-            "group": "Design Cinema",
-            "title": "Indie Game: The Movie",
-            "location": "Light House Cuba"
-        }, {
-            "startTime": "2014-10-19 18:30",
-            "group": "Creative Tools Meetup",
-            "title": "InDesign 101 - 102",
-            "location": "Youbee School"
-        }, {
-            "startTime": "2014-10-19 18:00",
-            "group": "UX Bookclub",
-            "title": "Don't Make Me Think: Steve Krug",
-            "location": "Southern Cross"
-        }, {
-            "startTime": "2014-10-25 20:00",
-            "group": "Design Cinema",
-            "title": "PressPausePlay",
-            "location": "Light House Cuba"
-        }, {
-        	"startTime": "2014-11-12 18:00",
-        	"group": "CSS Meetup",
-        	"title": "Drill #2: Packaging Design",
-        	"location": "Empathy Office"
-        }, {
-        	"startTime": "2014-11-14 8:00",
-        	"group": "Design & Thinking",
-        	"title": "Let's meet up and chat about design",
-        	"location": "Trade Kitchen"
-        }, {
-        	"startTime": "2014-11-14 18:30",
-        	"group": "UX Wellington",
-        	"title": "Service Design Special",
-        	"location": "One Red Dog"
-        }, {
-        	"startTime": "2014-11-14 20:00",
-        	"group": "Design Cinema",
-        	"title": "Indie Game: The Movie",
-        	"location": "Light House Cuba"
-        }, {
-        	"startTime": "2014-11-19 18:30",
-        	"group": "Creative Tools Meetup",
-        	"title": "InDesign 101 - 102",
-        	"location": "Youbee School"
-        }, {
-        	"startTime": "2014-11-19 18:00",
-        	"group": "UX Bookclub",
-        	"title": "Don't Make Me Think: Steve Krug",
-        	"location": "Southern Cross"
-        }, {
-        	"startTime": "2014-11-25 20:00",
-        	"group": "Design Cinema",
-        	"title": "PressPausePlay",
-        	"location": "Light House Cuba"
-        }, {
-        	"startTime": "2014-11-12 18:00",
-        	"group": "CSS Meetup",
-        	"title": "Drill #2: Packaging Design",
-        	"location": "Empathy Office"
-        }, {
-        	"startTime": "2014-11-14 8:00",
-        	"group": "Design & Thinking",
-        	"title": "Let's meet up and chat about design",
-        	"location": "Trade Kitchen"
-        }, {
-        	"startTime": "2014-11-14 18:30",
-        	"group": "UX Wellington",
-        	"title": "Service Design Special",
-        	"location": "One Red Dog"
-        }, {
-        	"startTime": "2014-11-12 20:00",
-        	"group": "Design Cinema",
-        	"title": "Indie Game: The Movie",
-        	"location": "Light House Cuba"
-        }, {
-        	"startTime": "2014-11-09 18:30",
-        	"group": "Creative Tools Meetup",
-        	"title": "InDesign 101 - 102",
-        	"location": "Youbee School"
-        }, {
-        	"startTime": "2014-11-09 18:00",
-        	"group": "UX Bookclub",
-        	"title": "Don't Make Me Think: Steve Krug",
-        	"location": "Southern Cross"
-        }, {
-        	"startTime": "2014-12-05 20:00",
-        	"group": "Design Cinema",
-        	"title": "PressPausePlay",
-        	"location": "Light House Cuba"
+          "name": "Wellington APPS Photography Meetup Group",
+          "url": "http://www.meetup.com/WellingtonPhotographyMeetupGroup",
+          "events": []
+        },
+        {
+          "name": "Wellington .NET User Group",
+          "url": "http://www.meetup.com/WelliDotNet",
+          "events": [
+            {
+              "title": "Wellington .NET User Group: Nuts and bolts of a real world application with John Rusk",
+              "startTime": "2014-11-19T18:00:00+13:00",
+              "endTime": "2014-11-19T21:00:00+13:00",
+              "description": "<p>In November 2013, the OSPRI Disease Management System went live. It's essential to OSPRI New Zealand's world-leading success in eradicating Bovine Tuberculosis. The project won IT Project Excellence and Software Excellence categories at IITP's 2014 Excellence in IT Awards.</p> <p>John will talk about some of the key technical lessons learned during the project, such as:</p> <p><b>.NET Architecture</b></p> <p>Where does the business logic go?  The Domain Model , the Service Layer, a little of both, or somewhere else? Here’s what we did and how it worked out.</p> <p>The dark side of ASP.NET MVC.</p> <p><b>Handy SQL Server Techniques</b></p> <p>Using Row Versioning and the Resource Governor to safely support long-running queries, such as reports, on your production database.</p> <p>A quick overview of ubiquitous change auditing, and the \"magic\" compression of Clustered Columnstores.</p> <p><b>Testing and testability</b></p> <p>Allowing your system to travel through time. Realistically test long-running business processes in just a few minutes.</p> <p>Enforcing coding conventions with unit tests. These tests use reflection to look inside the implementation of methods, and assert that coding rules have been followed.</p>",
+              "location": "Inov8 Ltd, Level 1, 44 Victoria Street, Wellington, nz",
+              "url": "http://www.meetup.com/WelliDotNet/events/205897852/"
+            },
+            {
+              "title": "Wellington .NET User Group: BizTalk 2013 R2 with RESTful service and JSON support with Sooraj Payyoormana",
+              "startTime": "2014-11-26T18:00:00+13:00",
+              "endTime": "2014-11-26T21:00:00+13:00",
+              "description": "<p>The \"WCF-WebHttp\" adapter came with the BizTalk 2013 R2 will support both on-premises and cloud-based integration scenarios. The new JSON pipeline encoder and decoder enable BizTalk to send and receive JSON files. Join for this session to understand how these new additions will help us in integrating services with BizTalk .</p>",
+              "location": "Inov8 Ltd, Level 1, 44 Victoria Street, Wellington, nz",
+              "url": "http://www.meetup.com/WelliDotNet/events/207880362/"
+            },
+            {
+              "title": "Wellington .NET User Group: The Actor Model with Project Orleans",
+              "startTime": "2014-12-03T18:00:00+13:00",
+              "endTime": "2014-12-03T21:00:00+13:00",
+              "description": "<p>A quick introduction to developing scalable, distributed applications using the Actor Model with Microsoft's Project Orleans.</p>",
+              "location": "Inov8 Ltd, Level 1, 44 Victoria Street, Wellington, nz",
+              "url": "http://www.meetup.com/WelliDotNet/events/207544922/"
+            },
+            {
+              "title": "Wellington .NET User Group: Well-Secured: The Wellington Security Defender Day",
+              "startTime": "2014-12-10T10:00:00+13:00",
+              "endTime": "2014-12-10T17:00:00+13:00",
+              "description": "<p>The day before <a href=\"https://kiwicon.org/\">Kiwicon 8</a> in Wellington, we'll be having a meetup for those people involved in securing the applications developed by their company.</p> <p>Further details are available at <a href=\"http://www.well-secured.com\"><a href=\"http://www.well-secured.com\" class=\"linkified\">http://www.well-secured.com</a></a></p> <p>\n\n\nThe location will be confirmed closer to the time, depending upon attendee numbers.</p>",
+              "location": null,
+              "url": "http://www.meetup.com/WelliDotNet/events/205346102/"
+            },
+            {
+              "title": "Wellington .NET User Group: UX/Usability for Developers with Gareth Bradley",
+              "startTime": "2014-12-17T18:00:00+13:00",
+              "endTime": "2014-12-17T21:00:00+13:00",
+              "description": null,
+              "location": "Inov8 Ltd, Level 1, 44 Victoria Street, Wellington, nz",
+              "url": "http://www.meetup.com/WelliDotNet/events/207765282/"
+            },
+            {
+              "title": "Wellington .NET User Group: Christmas Function",
+              "startTime": "2014-12-24T18:00:00+13:00",
+              "endTime": "2014-12-24T21:00:00+13:00",
+              "description": "<p>Let's meet up for a few drinks to celebrate the year.</p>",
+              "location": null,
+              "url": "http://www.meetup.com/WelliDotNet/events/207545432/"
+            },
+            {
+              "title": "Wellington .NET User Group: Cassandra with Aaron Morton",
+              "startTime": "2015-02-18T18:00:00+13:00",
+              "endTime": "2015-02-18T21:00:00+13:00",
+              "description": "<p>Come and listen to Aaron talk about the Cassandra database platform and how it can be used by .NET clients.</p>",
+              "location": "Inov8 Ltd, Level 1, 44 Victoria Street, Wellington, nz",
+              "url": "http://www.meetup.com/WelliDotNet/events/207665902/"
+            }
+          ]
         }
-    ];
+      ]
+    };
 
     // Graph container and dimensions
     var $containerEl = $('.js-graph'),
         containerElWidth = $containerEl.width(),
         containerElHeight = $containerEl.height();
+
+    /* Returns an array containing just event details from the original eventSources object */
+    function getSourcesEventData(prev, curr) {
+        function extendEventData(event) {
+          return _.assign(event, {
+            group: curr.name,
+            groupURL: curr.url
+          });
+        }
+        if (!prev) {
+          return curr.events.map(extendEventData);
+        }
+        return prev.concat(curr.events.map(extendEventData))
+    }
 
     /* Creates a moment object for an objects `startTime` property (expected use in _.map) */
     function createStartDate(d) {
@@ -365,7 +302,8 @@ $(function() {
     }
 
     // Sort and group all our data into to the correct format
-    var sortedDates = _.chain(data)
+    var sortedDates = _.chain(data.eventSources)
+        .reduce(getSourcesEventData, [])
         .map(createStartDate)
         .sortBy(function(d) {
             // Sort via the date only, set time to 0
