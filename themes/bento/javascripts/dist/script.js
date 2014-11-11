@@ -75,7 +75,16 @@ $(function() {
     // Graph container and dimensions
     var $containerEl = $('.js-graph'),
         containerElWidth = $containerEl.width(),
-        containerElHeight = $containerEl.height();
+        containerElHeight = $containerEl.height(),
+        lazyGraphRemoval = _.debounce(destroyGraphs, 10),
+        lazyGraphRecalculation = _.debounce(showResizedGraphs, 150);
+
+    // Bind window resize event to destroy andrecalculate graphs on browser window size change
+    $(window).on('resize', lazyGraphRemoval);
+    $(window).on('resize', lazyGraphRecalculation);
+
+    // Right. Let's do this.
+    showGraphs();
 
     /* Returns an array containing just event details from the original eventSources object */
     function getSourcesEventData(prev, curr) {
@@ -301,32 +310,6 @@ $(function() {
 
     }
 
-    // Sort and group all our data into to the correct format
-    var sortedDates = _.chain(data.eventSources)
-        .reduce(getSourcesEventData, [])
-        .map(createStartDate)
-        .sortBy(function(d) {
-            // Sort via the date only, set time to 0
-            return d.startDate
-                .hours(0)
-                .minutes(0)
-                .seconds(0)
-                .milliseconds(0)
-                .toDate()
-            })
-        .groupBy(groupByMonth)
-        .map(buildMonthData).value(),
-        numberOfMonths = sortedDates.length;
-
-    var graphData = buildMultigraphData(sortedDates);
-
-    // Create each graph
-    graphData.forEach(function(month, index, graphData) {
-        month.index = index;
-        month.totalMonths = graphData.length;
-        displayMonth(month)
-    });
-
     /*
      * Renders a single graph to the graph container. The `monthData` is expected to have the following
      * format:
@@ -420,6 +403,48 @@ $(function() {
 
     }
 
+    /* Actually utlise all the functions above and create the graphs */
+    function showGraphs() {
+      // Sort and group all our data into to the correct format
+      var sortedDates = _.chain(data.eventSources)
+          .reduce(getSourcesEventData, [])
+          .map(createStartDate)
+          .sortBy(function(d) {
+              // Sort via the date only, set time to 0
+              return d.startDate
+                  .hours(0)
+                  .minutes(0)
+                  .seconds(0)
+                  .milliseconds(0)
+                  .toDate()
+              })
+          .groupBy(groupByMonth)
+          .map(buildMonthData).value(),
+          numberOfMonths = sortedDates.length;
+
+      var graphData = buildMultigraphData(sortedDates);
+
+      // Create each graph
+      graphData.forEach(function(month, index, graphData) {
+          month.index = index;
+          month.totalMonths = graphData.length;
+          displayMonth(month)
+      });
+    }
+
+    /* Destroy the current graphs */
+    function destroyGraphs() {
+      $containerEl.html('');
+    }
+
+    /* Rebuilds graphs and recalculate the appropriate graph dimensions */
+    function showResizedGraphs() {
+      // Recaulate the closure variables for the new element sizes
+      containerElWidth = $containerEl.width(),
+      containerElHeight = $containerEl.height();
+
+      showGraphs();
+    }
 });
 ;$(function() {
     /*
