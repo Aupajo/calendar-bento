@@ -148,3 +148,42 @@
     height: 100%;
     width: 100%;
 }
+
+@media (max-width: 540px) {
+  .lineItem {
+      height: $eventHeightMobile;
+  }
+
+  .lineItem-day {
+      width: $dayPercentMobile;
+  }
+
+  .lineItem-date {
+      left: $dayPercentMobile;
+      width: $datePercentMobile;
+  }
+
+  .lineItem-time {
+      border-bottom: none;
+      left: $dayPercentMobile + $datePercentMobile;
+      width: $timePercentMobile;
+  }
+
+  .lineItem-group {
+      border-bottom: none;
+      left: $dayPercentMobile + $datePercentMobile + $timePercentMobile;
+      width: $groupPercentMobile;
+  }
+
+  .lineItem-title {
+      left: $dayPercentMobile + $dayPercentMobile;
+      top: $eventHeight;
+      width: $titlePercentMobile;
+  }
+
+  .lineItem-location {
+      left: $dayPercentMobile + $dayPercentMobile + $titlePercentMobile;
+      top: $eventHeight;
+      width: $locationPercentMobile;
+  }
+}

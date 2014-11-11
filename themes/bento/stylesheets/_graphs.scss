@@ -9,9 +9,14 @@
     #HOLDER
 \*------------------------------------*/
 .graphHolder {
-    height: 60px; // TODO: variable? Not 100% if we even need to explicitly set a height here.
+    height: $graphHeight;
 }
 
+@media (max-width: $maxWidth) {
+  .graphHolder {
+    margin-top: $alphaTextSize;
+  }
+}
 
 /*------------------------------------*\
     #AXIS

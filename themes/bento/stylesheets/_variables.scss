@@ -10,6 +10,8 @@
  * Events................The table of events
  * Sources Grid..........The grid event sources
  * Buttons...............Button styling
+ * Graphs................Graph layout details
+ * Mobile................Any mobile specific details that don't fit under the categories above
  */
 
 /*------------------------------------*\
@@ -57,6 +59,7 @@ $modalMaxHeight: 350px;
     #NAVIGATION
 \*------------------------------------*/
 $navigationHeight: 42px;
+$navigationTopOffsetMobile: 60px;
 
 /*------------------------------------*\
     #EVENTS
@@ -69,6 +72,16 @@ $timePercent: percentage(105 / 940);
 $groupPercent: percentage(260 / 940);
 $titlePercent: percentage(265 / 940);
 $locationPercent: percentage(220 / 940);
+
+$eventHeightMobile: $eventHeight * 2;
+
+$dayPercentMobile: 8%; //percentage(50 / 940);
+$datePercentMobile: 8%; // percentage(40 / 940);
+$timePercentMobile: 14%; //percentage(105 / 940);
+$groupPercentMobile: 70%; //percentage(260 / 940);
+$titlePercentMobile: 50%; //percentage(265 / 940);
+$locationPercentMobile: 30%; //percentage(220 / 940);
+
 
 /*------------------------------------*\
     #SOURCES GRID
@@ -86,3 +99,12 @@ $buttonText: #676767;
 $buttonPrimaryPadding: 50px;
 $buttonPrimaryColor: #009900;
 $buttonPrimaryText: #fff;
+
+/*------------------------------------*\
+    #GRAPHS
+\*------------------------------------*/
+$graphHeight: 60px;
+
+/*------------------------------------*\
+    #MOBILE
+\*------------------------------------*/

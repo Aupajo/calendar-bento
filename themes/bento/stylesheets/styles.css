@@ -184,6 +184,8 @@ table {
  * Events................The table of events
  * Sources Grid..........The grid event sources
  * Buttons...............Button styling
+ * Graphs................Graph layout details
+ * Mobile................Any mobile specific details that don't fit under the categories above
  */
 /*------------------------------------*\
     #COLOURS
@@ -211,6 +213,12 @@ table {
 \*------------------------------------*/
 /*------------------------------------*\
     #BUTTON
+\*------------------------------------*/
+/*------------------------------------*\
+    #GRAPHS
+\*------------------------------------*/
+/*------------------------------------*\
+    #MOBILE
 \*------------------------------------*/
 /**
  * @license
@@ -308,6 +316,11 @@ section {
   position: relative;
 }
 
+@media (max-width: 940px) {
+  .l-mainContent {
+    margin: 0 10px;
+  }
+}
 /*------------------------------------*\
     #GRIDS
 
@@ -768,6 +781,11 @@ p {
   text-shadow: 0 -1px 1px #c22d18;
 }
 
+@media (max-width: 540px) {
+  .headerTitle {
+    font-size: 32px;
+  }
+}
 .headerLink {
   color: white;
   font-weight: bold;
@@ -799,6 +817,17 @@ p {
   top: 0;
 }
 
+@media (max-width: 940px) {
+  .headerNavigation {
+    left: 0;
+    top: 60px;
+  }
+}
+@media (max-width: 540px) {
+  .headerNavigation {
+    top: 30px;
+  }
+}
 /**
  * CONTENTS
  *
@@ -991,6 +1020,11 @@ p {
   height: 60px;
 }
 
+@media (max-width: 940px) {
+  .graphHolder {
+    margin-top: 32px;
+  }
+}
 /*------------------------------------*\
     #AXIS
 
@@ -1149,4 +1183,43 @@ p {
   /* 3. */
   height: 100%;
   width: 100%;
+}
+
+@media (max-width: 540px) {
+  .lineItem {
+    height: 100px;
+  }
+
+  .lineItem-day {
+    width: 8%;
+  }
+
+  .lineItem-date {
+    left: 8%;
+    width: 8%;
+  }
+
+  .lineItem-time {
+    border-bottom: none;
+    left: 16%;
+    width: 14%;
+  }
+
+  .lineItem-group {
+    border-bottom: none;
+    left: 30%;
+    width: 70%;
+  }
+
+  .lineItem-title {
+    left: 16%;
+    top: 50px;
+    width: 50%;
+  }
+
+  .lineItem-location {
+    left: 66%;
+    top: 50px;
+    width: 30%;
+  }
 }

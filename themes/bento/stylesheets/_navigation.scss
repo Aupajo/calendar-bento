@@ -6,3 +6,16 @@
     right: 0;
     top: 0;
 }
+
+@media (max-width: $maxWidth) {
+    .headerNavigation {
+        left: 0;
+        top: $navigationTopOffsetMobile;
+    }
+}
+
+@media (max-width: 540px) {
+    .headerNavigation {
+        top: $navigationTopOffsetMobile / 2;
+    }
+}

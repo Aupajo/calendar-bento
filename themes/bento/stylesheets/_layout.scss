@@ -9,3 +9,10 @@
     max-width: $maxWidth;
     position: relative;
 }
+
+
+@media (max-width: $maxWidth) {
+  .l-mainContent {
+    margin: 0 10px;
+  }
+}
