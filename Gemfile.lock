@@ -8,25 +8,32 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
-    almanack (1.0.2)
+    almanack (1.1.0.beta1)
       addressable
+      faraday
+      rack-contrib
       ri_cal
       sass
       sinatra
       sinatra-contrib
       thor
-    backports (3.6.0)
+    backports (3.6.3)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
     i18n (0.6.11)
     json (1.8.1)
     minitest (5.4.0)
     multi_json (1.10.1)
+    multipart-post (2.0.0)
     rack (1.5.2)
+    rack-contrib (1.2.0)
+      rack (>= 0.9.1)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
     ri_cal (0.8.8)
-    sass (3.3.11)
+    sass (3.4.7)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -49,4 +56,4 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  almanack
+  almanack (= 1.1.0.beta1)
