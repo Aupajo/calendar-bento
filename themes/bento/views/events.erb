@@ -1,23 +1,294 @@
 <% title 'Upcoming events' %>
 
-<div id="section-calendar" tabindex="-1" role="tabpanel" aria-labelledby="calendar">
+<main class="l-mainContent" id="section-design" role="main" aria-labelledby="calender-label">
   <section>
-    <h2>Today</h2>
-    <% calendar.events_between(DateTime.now.beginning_of_day..DateTime.now.end_of_day).each do |event| %>
-      <%= erb :event, locals: { event: event } %>
-    <% end %>
-  </section>
-  <section>
-    <h2>Next <%= calendar.days_lookahead %> days</h2>
-    <% calendar.events_between(DateTime.now.end_of_day..30.days.from_now).each do |event| %>
-      <%= erb :event, locals: { event: event } %>
-    <% end %>
-  </section>
-</div>
 
-<div id="section-connect" tabindex="-1" class="hidden" role="tabpanel" aria-labelledby="connect">
+    <!-- TODO: need to group these events by month here-->
+    <%
+      monthEvents = calendar.events.group_by(&:start_date.strftime('%B'))
+      monthEvents.each do |month|
+        # Do things
+      end
+    %>
+
+
+    <% calendar.events.each do |event| %>
+      <%= event.start_date.strftime('%B') %>
+      <%= erb :event, locals: { event: event } %>
+    <% end %>
+
+    <h2 class="title">September</h2>
+    <div class="lineItemHolder">
+      <div class="lineItem">
+        <span class="lineItem-day">Tue</span>
+        <span class="lineItem-date">12<span class="u-hidden">September</span></span>
+        <span class="lineItem-time">6pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">CSS Meetup</a></span>
+        <span class="lineItem-title">Drill #2: Packaging Design</span>
+        <span class="lineItem-location">Empathy Office</span>
+      </div>
+    </div>
+    <div class="lineItemHolder">
+      <div class="lineItem">
+        <span class="lineItem-day">Thu</span>
+        <span class="lineItem-date">14 <span class="u-hidden">September</span></span>
+        <span class="lineItem-time">8am</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">Design & Thinking</a></span>
+        <span class="lineItem-title">Let's meet up and chat about design</span>
+        <span class="lineItem-location">Trade Kitchen</span>
+      </div>
+      <div class="lineItem">
+        <span class="lineItem-day u-hidden">Thu</span>
+        <span class="lineItem-date u-hidden">14 <span class="u-hidden">September</span></span>
+        <span class="lineItem-time">6:30pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">UX Wellington</a></span>
+        <span class="lineItem-title">Service Design Special</span>
+        <span class="lineItem-location">One Red Dog</span>
+      </div>
+      <div class="lineItem">
+        <span class="lineItem-day u-hidden">Thu</span>
+        <span class="lineItem-date u-hidden">14 <span class="u-hidden">September</span></span>
+        <span class="lineItem-time">8pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">Design Cinema</a></span>
+        <span class="lineItem-title">Indie Game: The Movie</span>
+        <span class="lineItem-location">Light House Cuba</span>
+      </div>
+    </div>
+    <div class="lineItemHolder">
+      <div class="lineItem">
+        <span class="lineItem-day">Tue</span>
+        <span class="lineItem-date">19<span class="u-hidden">September</span></span>
+        <span class="lineItem-time">6:30pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">Creative Tools Meetup</a></span>
+        <span class="lineItem-title">InDesign 101 - 102</span>
+        <span class="lineItem-location">Youbee School</span>
+      </div>
+      <div class="lineItem">
+        <span class="lineItem-day u-hidden">Tue</span>
+        <span class="lineItem-date u-hidden">19<span class="u-hidden">September</span></span>
+        <span class="lineItem-time">6pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">UX Bookclub</a></span>
+        <span class="lineItem-title">Don't Make Me Think: Steve Krug</span>
+        <span class="lineItem-location">Southern Cross</span>
+      </div>
+    </div>
+    <div class="lineItemHolder">
+      <div class="lineItem">
+        <span class="lineItem-day">Mon</span>
+        <span class="lineItem-date">25<span class="u-hidden">September</span></span>
+        <span class="lineItem-time">8pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">Design Cinema</a></span>
+        <span class="lineItem-title">PressPausePlay</span>
+        <span class="lineItem-location">Light House Cuba</span>
+      </div>
+    </div>
+  </section>
+
   <section>
-    <h2>Connect <span>this calendar to your own</span></h2>
-    <p>Subscribe: <a href="<%= feed_url %>"><%= feed_url %></a> (Outlook, iCal, Google Calendar)</p>
-</section>
-</div>
+    <h2 class="title">October</h2>
+    <div class="lineItemHolder">
+      <div class="lineItem">
+        <span class="lineItem-day">Tue</span>
+        <span class="lineItem-date">12<span class="u-hidden">October</span></span>
+        <span class="lineItem-time">6pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">CSS Meetup</a></span>
+        <span class="lineItem-title">Drill #2: Packaging Design</span>
+        <span class="lineItem-location">Empathy Office</span>
+      </div>
+    </div>
+    <div class="lineItemHolder">
+      <div class="lineItem">
+        <span class="lineItem-day">Thu</span>
+        <span class="lineItem-date">14 <span class="u-hidden">October</span></span>
+        <span class="lineItem-time">8am</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">Design & Thinking</a></span>
+        <span class="lineItem-title">Let's meet up and chat about design</span>
+        <span class="lineItem-location">Trade Kitchen</span>
+      </div>
+      <div class="lineItem">
+        <span class="lineItem-day u-hidden">Thu</span>
+        <span class="lineItem-date u-hidden">14 <span class="u-hidden">October</span></span>
+        <span class="lineItem-time">6:30pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">UX Wellington</a></span>
+        <span class="lineItem-title">Service Design Special</span>
+        <span class="lineItem-location">One Red Dog</span>
+      </div>
+      <div class="lineItem">
+        <span class="lineItem-day u-hidden">Thu</span>
+        <span class="lineItem-date u-hidden">14 <span class="u-hidden">October</span></span>
+        <span class="lineItem-time">8pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">Design Cinema</a></span>
+        <span class="lineItem-title">Indie Game: The Movie</span>
+        <span class="lineItem-location">Light House Cuba</span>
+      </div>
+    </div>
+    <div class="lineItemHolder">
+      <div class="lineItem">
+        <span class="lineItem-day">Tue</span>
+        <span class="lineItem-date">19<span class="u-hidden">October</span></span>
+        <span class="lineItem-time">6:30pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">Creative Tools Meetup</a></span>
+        <span class="lineItem-title">InDesign 101 - 102</span>
+        <span class="lineItem-location">Youbee School</span>
+      </div>
+      <div class="lineItem">
+        <span class="lineItem-day u-hidden">Tue</span>
+        <span class="lineItem-date u-hidden">19<span class="u-hidden">October</span></span>
+        <span class="lineItem-time">6pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">UX Bookclub</a></span>
+        <span class="lineItem-title">Don't Make Me Think: Steve Krug</span>
+        <span class="lineItem-location">Southern Cross</span>
+      </div>
+    </div>
+    <div class="lineItemHolder">
+      <div class="lineItem">
+        <span class="lineItem-day">Mon</span>
+        <span class="lineItem-date">25<span class="u-hidden">October</span></span>
+        <span class="lineItem-time">8pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">Design Cinema</a></span>
+        <span class="lineItem-title">PressPausePlay</span>
+        <span class="lineItem-location">Light House Cuba</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="title">November</h2>
+    <div class="lineItemHolder">
+      <div class="lineItem">
+        <span class="lineItem-day">Tue</span>
+        <span class="lineItem-date">12<span class="u-hidden">November</span></span>
+        <span class="lineItem-time">6pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">CSS Meetup</a></span>
+        <span class="lineItem-title">Drill #2: Packaging Design</span>
+        <span class="lineItem-location">Empathy Office</span>
+      </div>
+    </div>
+    <div class="lineItemHolder">
+      <div class="lineItem">
+        <span class="lineItem-day">Thu</span>
+        <span class="lineItem-date">14 <span class="u-hidden">November</span></span>
+        <span class="lineItem-time">8am</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">Design & Thinking</a></span>
+        <span class="lineItem-title">Let's meet up and chat about design</span>
+        <span class="lineItem-location">Trade Kitchen</span>
+      </div>
+      <div class="lineItem">
+        <span class="lineItem-day u-hidden">Thu</span>
+        <span class="lineItem-date u-hidden">14 <span class="u-hidden">November</span></span>
+        <span class="lineItem-time">6:30pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">UX Wellington</a></span>
+        <span class="lineItem-title">Service Design Special</span>
+        <span class="lineItem-location">One Red Dog</span>
+      </div>
+      <div class="lineItem">
+        <span class="lineItem-day u-hidden">Thu</span>
+        <span class="lineItem-date u-hidden">14 <span class="u-hidden">November</span></span>
+        <span class="lineItem-time">8pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">Design Cinema</a></span>
+        <span class="lineItem-title">Indie Game: The Movie</span>
+        <span class="lineItem-location">Light House Cuba</span>
+      </div>
+    </div>
+    <div class="lineItemHolder">
+      <div class="lineItem">
+        <span class="lineItem-day">Tue</span>
+        <span class="lineItem-date">19<span class="u-hidden">November</span></span>
+        <span class="lineItem-time">6:30pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">Creative Tools Meetup</a></span>
+        <span class="lineItem-title">InDesign 101 - 102</span>
+        <span class="lineItem-location">Youbee School</span>
+      </div>
+      <div class="lineItem">
+        <span class="lineItem-day u-hidden">Tue</span>
+        <span class="lineItem-date u-hidden">19<span class="u-hidden">November</span></span>
+        <span class="lineItem-time">6pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">UX Bookclub</a></span>
+        <span class="lineItem-title">Don't Make Me Think: Steve Krug</span>
+        <span class="lineItem-location">Southern Cross</span>
+      </div>
+    </div>
+    <div class="lineItemHolder">
+      <div class="lineItem">
+        <span class="lineItem-day">Mon</span>
+        <span class="lineItem-date">25<span class="u-hidden">November</span></span>
+        <span class="lineItem-time">8pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">Design Cinema</a></span>
+        <span class="lineItem-title">PressPausePlay</span>
+        <span class="lineItem-location">Light House Cuba</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="title">December</h2>
+    <div class="lineItemHolder">
+      <div class="lineItem">
+        <span class="lineItem-day">Tue</span>
+        <span class="lineItem-date">12<span class="u-hidden">December</span></span>
+        <span class="lineItem-time">6pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">CSS Meetup</a></span>
+        <span class="lineItem-title">Drill #2: Packaging Design</span>
+        <span class="lineItem-location">Empathy Office</span>
+      </div>
+    </div>
+    <div class="lineItemHolder">
+      <div class="lineItem">
+        <span class="lineItem-day">Thu</span>
+        <span class="lineItem-date">14 <span class="u-hidden">December</span></span>
+        <span class="lineItem-time">8am</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">Design & Thinking</a></span>
+        <span class="lineItem-title">Let's meet up and chat about design</span>
+        <span class="lineItem-location">Trade Kitchen</span>
+      </div>
+      <div class="lineItem">
+        <span class="lineItem-day u-hidden">Thu</span>
+        <span class="lineItem-date u-hidden">14 <span class="u-hidden">December</span></span>
+        <span class="lineItem-time">6:30pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">UX Wellington</a></span>
+        <span class="lineItem-title">Service Design Special</span>
+        <span class="lineItem-location">One Red Dog</span>
+      </div>
+      <div class="lineItem">
+        <span class="lineItem-day u-hidden">Thu</span>
+        <span class="lineItem-date u-hidden">14 <span class="u-hidden">December</span></span>
+        <span class="lineItem-time">8pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">Design Cinema</a></span>
+        <span class="lineItem-title">Indie Game: The Movie</span>
+        <span class="lineItem-location">Light House Cuba</span>
+      </div>
+    </div>
+    <div class="lineItemHolder">
+      <div class="lineItem">
+        <span class="lineItem-day">Tue</span>
+        <span class="lineItem-date">19<span class="u-hidden">December</span></span>
+        <span class="lineItem-time">6:30pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">Creative Tools Meetup</a></span>
+        <span class="lineItem-title">InDesign 101 - 102</span>
+        <span class="lineItem-location">Youbee School</span>
+      </div>
+      <div class="lineItem">
+        <span class="lineItem-day u-hidden">Tue</span>
+        <span class="lineItem-date u-hidden">19<span class="u-hidden">December</span></span>
+        <span class="lineItem-time">6pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">UX Bookclub</a></span>
+        <span class="lineItem-title">Don't Make Me Think: Steve Krug</span>
+        <span class="lineItem-location">Southern Cross</span>
+      </div>
+    </div>
+    <div class="lineItemHolder">
+      <div class="lineItem">
+        <span class="lineItem-day">Mon</span>
+        <span class="lineItem-date">25<span class="u-hidden">December</span></span>
+        <span class="lineItem-time">8pm</span>
+        <span class="lineItem-group"><a href="#" class="lineItem-link">Design Cinema</a></span>
+        <span class="lineItem-title">PressPausePlay</span>
+        <span class="lineItem-location">Light House Cuba</span>
+      </div>
+    </div>
+  </section>
+
+  <p>That's it! Those are all the design events currently listed.</p>
+  <p>Check back whenever for updates.</p>
+
+</main>
