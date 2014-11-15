@@ -1,7 +1,10 @@
-<div class="line-item">
-  <span class="day"><%= event.start_date.strftime('%a') %></span>
-  <span class="date"><%= event.start_date.strftime('%d %b') %></span>
-  <span class="time"><%= event.start_date.strftime('%l:%M%P') %></span>
-  <span class="group"><a href="<%= event.url %>"><%= event.title %></a></span>
-  <span class="location"><%= event.location %></span>
+<div class="lineItemHolder">
+  <div class="lineItem">
+    <span class="lineItem-day"><%= event.start_date.strftime('%a') %></span>
+    <span class="lineItem-date"><%= event.start_date.strftime('%d') %><span class="u-hidden"><%= event.start_date.strftime('%B') %></span></span>
+    <span class="lineItem-time"><%= event.start_date.strftime('%l:%M%P') %></span>
+    <span class="lineItem-group"><a href="<%= event.url %>" class="lineItem-link">Name here!</a></span>
+    <span class="lineItem-title"><%= event.title %></span>
+    <span class="lineItem-location"><%= event.location %></span>
+  </div>
 </div>

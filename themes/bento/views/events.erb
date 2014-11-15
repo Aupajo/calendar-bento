@@ -4,10 +4,13 @@
   <section>
 
     <!-- TODO: need to group these events by month here-->
-    <% calendar.events.each do |event| %>
-      <%= event.start_date.strftime('%B') %>
-      <%= erb :event, locals: { event: event } %>
+    <% calendar.events.group_by { |event| event.start_time.strftime('%B') }.each do |month, events| %>
+    <h2 class="title"><%= month %></h2>
+      <% events.each do |event| %>
+        <%= erb :event, locals: { event: event } %>
+      <% end %>
     <% end %>
+
 
     <!-- TEST DATA -->
     <h2 class="title">September</h2>
