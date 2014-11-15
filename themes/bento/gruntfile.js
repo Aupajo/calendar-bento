@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 				}
 			},
 			scripts: {
-				files: 'javascripts/**/*.js',
+				files: 'scripts/**/*.js',
 				tasks: ['concat'],
 				options: {
 					debounceDelay: 250
@@ -32,12 +32,12 @@ module.exports = function(grunt) {
 				separator: ';',
 			},
 			scripts: {
-				src: ['javascripts/dev/*.js'],
-				dest: 'javascripts/dist/script.js',
+				src: ['scripts/dev/*.js'],
+				dest: 'scripts/dist/script.js',
 			},
 			libs: {
-				src: ['javascripts/dev/libs/*.js'],
-				dest: 'javascripts/dist/libs.js',
+				src: ['scripts/dev/libs/*.js'],
+				dest: 'scripts/dist/libs.js',
 			}
 		}
 	});
