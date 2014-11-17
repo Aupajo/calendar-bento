@@ -7,13 +7,13 @@ module.exports = function(grunt) {
 					style: 'expanded'
 				},
 				files: {
-					'stylesheets/styles.css': 'stylesheets/styles.scss'
+					'public/stylesheets/styles.css': 'public/stylesheets/styles.scss'
 				}
 			}
 		},
 		watch: {
 			styles: {
-				files: 'stylesheets/**/*.scss',
+				files: 'public/**/*.scss',
 				tasks: ['sass'],
 				options: {
 					debounceDelay: 250
@@ -32,12 +32,12 @@ module.exports = function(grunt) {
 				separator: ';',
 			},
 			scripts: {
-				src: ['scripts/dev/*.js'],
-				dest: 'scripts/dist/script.js',
+				src: ['public/scripts/dev/*.js'],
+				dest: 'public/scripts/dist/script.js',
 			},
 			libs: {
-				src: ['scripts/dev/libs/*.js'],
-				dest: 'scripts/dist/libs.js',
+				src: ['public/scripts/dev/libs/*.js'],
+				dest: 'public/scripts/dist/libs.js',
 			}
 		}
 	});
