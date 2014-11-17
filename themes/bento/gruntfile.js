@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 				}
 			},
 			scripts: {
-				files: 'scripts/**/*.js',
+				files: 'public/**/*.js',
 				tasks: ['concat'],
 				options: {
 					debounceDelay: 250

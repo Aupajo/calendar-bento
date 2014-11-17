@@ -35,6 +35,8 @@ $(function() {
 
                     $navLinks.on('click', navLinkClickHandler);
                     $closeDialogButtons.on('click', closeDialogClickHandler);
+
+                    $(window).on('resize', _.debounce(this.resetOverlayDimensions, 10));
                 },
                 /* Handler for opening the navlink's dialogs. Also takes care of correclty setting
                    the aria selected state */

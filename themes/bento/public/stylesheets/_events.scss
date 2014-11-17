@@ -149,7 +149,7 @@
     width: 100%;
 }
 
-@media (max-width: 540px) {
+@media (max-width: $tabletWidth) {
   .lineItem {
       height: $eventHeightMobile;
   }

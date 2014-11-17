@@ -14,7 +14,7 @@
     }
 }
 
-@media (max-width: 540px) {
+@media (max-width: $tabletWidth) {
     .headerNavigation {
         top: $navigationTopOffsetMobile / 2;
     }
