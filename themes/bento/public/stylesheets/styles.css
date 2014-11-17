@@ -900,6 +900,7 @@ p {
  * Container.............The container for the sources grid
  * Text..................Any text differentiators for the sources
  * Cells.................All the details for the source options
+ * Grid..................Styling for the overall grid
  * Checks................The custom checkboxes/labels for the event sources
  */
 /*------------------------------------*\
@@ -923,6 +924,13 @@ p {
 
 .sourcesSelected {
   font-size: 14px;
+}
+
+/*------------------------------------*\
+    #GRID
+\*------------------------------------*/
+.sourcesGrid {
+  margin-top: 40px;
 }
 
 /*------------------------------------*\
@@ -973,6 +981,7 @@ p {
   position: absolute;
   top: 0;
   width: 38px;
+  z-index: 1;
 }
 .sourcesCheckDisplay-circle {
   top: 48px;
@@ -980,18 +989,18 @@ p {
 
 .sourcesCheck + .sourcesCheckDisplay {
   /* 1. */
-  background: transparent url("../public/checkbox.png") -38px top no-repeat;
+  background: transparent url("../images/checkbox.png") -38px top no-repeat;
 }
 .sourcesCheck + .sourcesCheckDisplay-circle {
-  background: transparent url("../public/checkbox.png") -38px -38px no-repeat;
+  background: transparent url("../images/checkbox.png") -38px -38px no-repeat;
 }
 
 .sourcesCheck:checked + .sourcesCheckDisplay {
-  background: transparent url("../public/checkbox.png") left top no-repeat;
+  background: transparent url("../images/checkbox.png") left top no-repeat;
 }
 .sourcesCheck:checked + .sourcesCheckDisplay-circle {
   /* 2. */
-  background: transparent url("../public/checkbox.png") left -38px no-repeat;
+  background: transparent url("../images/checkbox.png") left -38px no-repeat;
 }
 
 .sourcesCheck:checked ~ .sourcesLabel {
@@ -1004,7 +1013,9 @@ p {
   font-size: 14px;
   line-height: 40px;
   padding-left: 45px;
+  position: absolute;
   width: 100%;
+  z-index: 2;
 }
 
 /**

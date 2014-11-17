@@ -4,6 +4,7 @@
  * Container.............The container for the sources grid
  * Text..................Any text differentiators for the sources
  * Cells.................All the details for the source options
+ * Grid..................Styling for the overall grid
  * Checks................The custom checkboxes/labels for the event sources
  */
 
@@ -28,6 +29,13 @@
 
 .sourcesSelected {
     font-size: $bodyTextSize;
+}
+
+/*------------------------------------*\
+    #GRID
+\*------------------------------------*/
+.sourcesGrid {
+  margin-top: $sourcesCellHeight;
 }
 
 /*------------------------------------*\
@@ -85,6 +93,7 @@ $negDimension: $dimension * -1;
     position: absolute;
     top: 0;
     width: $dimension;
+    z-index: 1;
 
     &-circle {
         top: $dimension + 10;
@@ -92,18 +101,18 @@ $negDimension: $dimension * -1;
 }
 
 .sourcesCheck + .sourcesCheckDisplay { /* 1. */
-    background: transparent url('../public/checkbox.png') $negDimension top no-repeat;
+    background: transparent url('../images/checkbox.png') $negDimension top no-repeat;
 
     &-circle {
-        background: transparent url('../public/checkbox.png') $negDimension $negDimension no-repeat;
+        background: transparent url('../images/checkbox.png') $negDimension $negDimension no-repeat;
     }
 }
 
 .sourcesCheck:checked + .sourcesCheckDisplay {
-    background: transparent url('../public/checkbox.png') left top no-repeat;
+    background: transparent url('../images/checkbox.png') left top no-repeat;
 
     &-circle { /* 2. */
-        background: transparent url('../public/checkbox.png') left $negDimension no-repeat;
+        background: transparent url('../images/checkbox.png') left $negDimension no-repeat;
     }
 }
 
@@ -117,5 +126,7 @@ $negDimension: $dimension * -1;
     font-size: $bodyTextSize;
     line-height: $sourcesCellHeight;
     padding-left: 45px;
+    position: absolute;
     width: 100%;
+    z-index: 2;
 }
