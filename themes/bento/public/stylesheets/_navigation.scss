@@ -1,0 +1,21 @@
+/**
+ * The navigation that sits in the header. Placed up the top right hand side.
+ */
+.headerNavigation {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+@media (max-width: $maxWidth) {
+    .headerNavigation {
+        left: 0;
+        top: $navigationTopOffsetMobile;
+    }
+}
+
+@media (max-width: $tabletWidth) {
+    .headerNavigation {
+        top: $navigationTopOffsetMobile / 2;
+    }
+}

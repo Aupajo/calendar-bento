@@ -1,0 +1,21 @@
+/**
+ * Contains a set of useful base classes that can be used on any element.
+ *
+ * They all should have !important because they should specify a very specific
+ * and ideal use case. No other properties on a selector should override these. If
+ * they do then you've done something very, very wrong;
+ */
+
+/* Totally removes the element from the view */
+.u-hidden {
+    display: none!important;
+}
+
+/* Remove all padding and margin from an element */
+.u-noMargin {
+    margin: 0!important;
+}
+
+.u-noPadding {
+    padding: 0!important;
+}

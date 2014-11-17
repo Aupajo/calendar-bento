@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    #SITE FOOTER
+
+    I'm still not sure of the class name here. We put a class on the footer for the
+    site because the <footer> tag can be used multiple times in different contexts.
+    The use of `.footer` makes me wonder if it's not specialised enough - you could
+    easily argue I'm just creating specificity for a single element..
+    I think it'll be ok for the time being because we currently only have one footer.
+    Retrofitting is easy. So why not just use the footer tag directly instead of a
+    class, James? Because we have conventions and that doesn't fit in with them.
+\*------------------------------------*/
+
+.footer {
+    background-color: $primary;
+    height: 30px;
+}

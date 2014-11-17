@@ -1,13 +1,15 @@
 <% title 'Something went wrong' %>
 
-<div id="error">
-  <h1>Oops.</h1>
+<main class="l-mainContent" id="section-design" role="main" aria-labelledby="calender-label">
+  <section>
+    <h2 class="title">Oops.</h2>
 
-  <p>Something went wrong.</p>
+    <p>Something went wrong.</p>
 
-  <% if request.path == '/' %>
-    <p>Sorry about that. Check back later!</p>
-  <% else %>
-    <p><a href="/">Return home</a></p>
-  <% end %>
-</div>
+    <% if request.path == '/' %>
+      <p>Sorry about that. Check back later!</p>
+    <% else %>
+      <p><a href="/">Return home</a></p>
+    <% end %>
+  </section>
+</main>

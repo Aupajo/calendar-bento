@@ -1,0 +1,189 @@
+/**
+ * CONTENTS
+ *
+ * Text..................Text styles that are only relevant to the events
+ * Line item.............Lineitem layout
+ * LIne item details.....Styling of meta data within a line item
+ */
+
+/*------------------------------------*\
+    #TEXT
+\*------------------------------------*/
+.title {
+    font-family: $helvetica;
+    font-weight: 100;
+    margin: 0;
+    padding: 20px 0 10px 0;
+    border-bottom: 1px solid $secondary;
+}
+
+/*------------------------------------*\
+    #LINE ITEMS
+
+    The line items are each of the individual calendar events.
+
+    Everything here is absolutely positioned so that, if need be, we can change the
+    HTML structure for the benefit of users with screen readers but can keep the
+    visuals looking accurate for those without
+
+    1.  Normally we shouldn't nest things like this (or style an element tag) but I think
+        given the layout we have, this is going to be fine.
+    2.  Given our text and height data, what's the correct spacing.
+    3.  We want any links within a line item to take up the entire parent container.
+\*------------------------------------*/
+
+.lineItemHolder {
+    border-bottom: 1px solid $secondary;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.lineItem {
+    font-size: $bodyTextSize;
+    height: $eventHeight;
+    overflow: auto;
+    position: relative;
+
+    &:last-child {
+        span {
+            border-bottom: none!important; /* Overriding the specificity of the .lineItem-* classes. */
+        }
+    }
+
+    &:hover {
+        background-color: $primary;
+
+        a, span {
+            color: #fff;
+        }
+
+        span {
+            border-bottom: none;
+        }
+    }
+
+    span, a { /* 1. */
+        overflow: hidden;
+        position: absolute;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+/* Shared placedhlders for common metadata properties */
+%hasBottomBorder {
+    border-bottom: 1px solid $secondary;
+}
+
+%bodyText {
+    $spacing: ($eventHeight - $bodyTextSize) / 2; /* 2. */
+
+    height: ($spacing * 2)+ $bodyTextSize;
+    padding-top: $spacing;
+}
+
+%betaText {
+    $spacing: ($eventHeight - $betaTextSize) / 2; /* 2. */
+
+    font-family: $megaphone;
+    font-size: $betaTextSize;
+    height: ($spacing * 2) + $betaTextSize;
+    padding-top: $spacing;
+}
+
+.lineItem-day {
+    @extend %bodyText;
+
+    left: 0;
+    text-align: center;
+    width: $dayPercent;
+}
+
+.lineItem-date {
+    @extend %bodyText;
+
+    left: $dayPercent;
+    text-align: center;
+    width: $datePercent;
+}
+
+.lineItem-time {
+    @extend %bodyText;
+    @extend %hasBottomBorder;
+
+    left: $dayPercent + $datePercent;
+    width: $timePercent;
+}
+
+.lineItem-group {
+    @extend %betaText;
+    @extend %hasBottomBorder;
+
+    left: $dayPercent + $datePercent + $timePercent;
+    width: $groupPercent;;
+}
+
+.lineItem-title {
+    @extend %bodyText;
+    @extend %hasBottomBorder;
+
+    left: $dayPercent + $datePercent + $timePercent + $groupPercent;
+    width: $titlePercent;
+}
+
+.lineItem-location {
+    @extend %bodyText;
+    @extend %hasBottomBorder;
+
+    left: $dayPercent + $datePercent + $timePercent + $groupPercent + $titlePercent;
+    padding-right: 15px;
+    text-align: right;
+    width: $locationPercent;
+}
+
+.lineItem-link {
+    display: block; /* 3. */
+    height: 100%;
+    width: 100%;
+}
+
+@media (max-width: $tabletWidth) {
+  .lineItem {
+      height: $eventHeightMobile;
+  }
+
+  .lineItem-day {
+      width: $dayPercentMobile;
+  }
+
+  .lineItem-date {
+      left: $dayPercentMobile;
+      width: $datePercentMobile;
+  }
+
+  .lineItem-time {
+      border-bottom: none;
+      left: $dayPercentMobile + $datePercentMobile;
+      width: $timePercentMobile;
+  }
+
+  .lineItem-group {
+      border-bottom: none;
+      left: $dayPercentMobile + $datePercentMobile + $timePercentMobile;
+      width: $groupPercentMobile;
+  }
+
+  .lineItem-title {
+      left: $dayPercentMobile + $dayPercentMobile;
+      top: $eventHeight;
+      width: $titlePercentMobile;
+  }
+
+  .lineItem-location {
+      left: $dayPercentMobile + $dayPercentMobile + $titlePercentMobile;
+      top: $eventHeight;
+      width: $locationPercentMobile;
+  }
+}

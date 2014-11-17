@@ -1,23 +1,16 @@
 <% title 'Upcoming events' %>
 
-<div id="section-calendar" tabindex="-1" role="tabpanel" aria-labelledby="calendar">
+<main class="l-mainContent" id="section-design" role="main" aria-labelledby="calender-label">
   <section>
-    <h2>Today</h2>
-    <% calendar.events_between(DateTime.now.beginning_of_day..DateTime.now.end_of_day).each do |event| %>
-      <%= erb :event, locals: { event: event } %>
+    <% calendar.events.group_by { |event| event.start_time.strftime('%B') }.each do |month, events| %>
+    <h2 class="title"><%= month %></h2>
+      <% events.each do |event| %>
+        <%= erb :event, locals: { event: event } %>
+      <% end %>
     <% end %>
   </section>
-  <section>
-    <h2>Next <%= calendar.days_lookahead %> days</h2>
-    <% calendar.events_between(DateTime.now.end_of_day..30.days.from_now).each do |event| %>
-      <%= erb :event, locals: { event: event } %>
-    <% end %>
-  </section>
-</div>
 
-<div id="section-connect" tabindex="-1" class="hidden" role="tabpanel" aria-labelledby="connect">
-  <section>
-    <h2>Connect <span>this calendar to your own</span></h2>
-    <p>Subscribe: <a href="<%= feed_url %>"><%= feed_url %></a> (Outlook, iCal, Google Calendar)</p>
-</section>
-</div>
+  <p>That's it! Those are all the design events currently listed.</p>
+  <p>Check back whenever for updates.</p>
+
+</main>
