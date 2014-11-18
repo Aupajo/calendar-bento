@@ -14,7 +14,7 @@
     bottom: 0;
     left: 0;
     position: absolute;
-    right: 0; 
+    right: 0;
     top: 0;
 }
 
@@ -29,10 +29,20 @@
     left: 50%;
     margin-left: ($maxWidth / 2) * -1;
     overflow: hidden; /* Hide the sbox shadow of the footer */
-    padding: 20px;
+    padding: $modalPadding;
+    padding-bottom: $modalPadding + $modalFooterHeight;
     position: relative;
     top: 50px;
     width: $maxWidth;
+}
+
+@media (max-width: $maxWidth) {
+  .modal {
+    left: 0;
+    margin: 0 $modalPadding;
+    right: 0;
+    width: auto;
+  }
 }
 
 .modalHeader {
@@ -51,17 +61,15 @@
 
 .modalFooter {
     border-radius: 0 0 $borderRadius $borderRadius;
-    bottom: -20px;
+    bottom: 0;
     box-shadow: 0 0 5px 0 $secondary;
     height: 70px;
-    left: -20px;
-    position: relative;
-    width: $maxWidth;
+    left: $modalPadding * -1;
+    position: absolute;
+    right: $modalPadding * -1;
 }
 
 .modalFooter--buttonHolder {
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    padding-top: 15px;
 }

@@ -605,6 +605,8 @@ $(function() {
                     });
 
                     this.bindEvents();
+                    this.sourceColumnSetup();
+
                 },
                 /* Binds any events onto the elements contained within the `sources` array generated
                    in the `init()` function */
@@ -619,6 +621,8 @@ $(function() {
                         // Deal with checking/unchecking all related sources
                         $(source.totalCheck).on('change', source, onTotalCheckChangeHander);
                     });
+
+                    $(window).on('resize', _.debounce(this.sourceColumnSetup, 10));
                 },
                 /* Handler for the individual event source checkboxes */
                 onCheckChangeHandler: function(event) {
@@ -673,6 +677,17 @@ $(function() {
                     } else {
                         totalCount.text(['(', totalChecksChecked, 'of', totalChecks, 'selected)'].join(' '));
                     }
+                },
+                /* This is a bit of a hack due to the class structure of the Pure grid explicityly determining
+                  how many columns the grid has. We need to change this responsively. I'd like to do this with
+                  CSS but we're still tied to the Pure grid. If I removed the Pure CSS then this wouldn't need
+                  to be in JS. TODO, maybe. */
+                sourceColumnSetup: function() {
+                  if (window.innerWidth < 540) {
+                    $('.pure-u-1-3').removeClass('pure-u-1-3').addClass('pure-u-1-2')
+                  } else {
+                    $('.pure-u-1-2').removeClass('pure-u-1-2').addClass('pure-u-1-3')
+                  }
                 }
             };
 

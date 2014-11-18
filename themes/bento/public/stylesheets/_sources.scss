@@ -41,7 +41,7 @@
 /*------------------------------------*\
     #CELLS
 
-    1.  Reasonable complex nth-child combinations that will take care of any number
+    1.  Reasonably complex nth-child combinations that will take care of any number
         of cells, provided they are always displayed in groups of three. All styles
         listed here need to be modified for any media queries in use (provided the
         queries requires these to be modified - currently hinges on the responsive grid
@@ -73,6 +73,45 @@
     &:last-child {
         border-right: 1px solid $secondary;
     }
+}
+
+@media (max-width: $tabletWidth) {
+  /* Only two cells per row instead of three */
+  .sourcesGridCell {
+      /* Undo from desktop. Cascade takes care of putting the right borders
+        back in if necessary */
+      &:nth-child(3) {
+        border-left: none;
+        border-top: none;
+      }
+
+      &:nth-child(3n - 2) {
+          border-left: none;
+          border-right: none;
+      }
+
+      &:nth-child(1), &:nth-child(2) {
+          border-top: 1px solid $secondary;
+      }
+
+      &:nth-child(2n), &:nth-child(2n - 1) {
+          border-right: 1px solid $secondary;
+      }
+
+      &:nth-child(2n) {
+          border-right: 1px solid $secondary;
+      }
+
+      &:nth-child(2n - 1) {
+          border-left: 1px solid $secondary;
+          border-right: 1px solid $secondary;
+      }
+
+      /* Ensure that we always have a right border on the final cell */
+      &:last-child {
+          border-right: 1px solid $secondary;
+      }
+  }
 }
 
 /*------------------------------------*\
@@ -125,8 +164,11 @@ $negDimension: $dimension * -1;
     display: block;
     font-size: $bodyTextSize;
     line-height: $sourcesCellHeight;
+    overflow-x: hidden;
     padding-left: 45px;
     position: absolute;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     width: 100%;
     z-index: 2;
 }
