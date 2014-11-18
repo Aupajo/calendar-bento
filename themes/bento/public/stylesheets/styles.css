@@ -259,7 +259,7 @@ body {
 }
 
 a {
-  color: #e54028;
+  color: #e52a08;
   text-decoration: none;
 }
 
@@ -758,7 +758,7 @@ p {
     `.footer` class. Let's ignore this for now
 \*------------------------------------*/
 .header {
-  background-color: #e54028;
+  background-color: #e52a08;
   color: #fff;
   padding-bottom: 15px;
   padding-top: 20px;
@@ -778,7 +778,7 @@ p {
   letter-spacing: 1px;
   margin: 0;
   text-indent: -4px;
-  text-shadow: 0 -1px 1px #c22d18;
+  text-shadow: 0 -1px 1px #b42106;
 }
 
 @media (max-width: 540px) {
@@ -804,7 +804,7 @@ p {
     class, James? Because we have conventions and that doesn't fit in with them.
 \*------------------------------------*/
 .footer {
-  background-color: #e54028;
+  background-color: #e52a08;
   height: 30px;
 }
 
@@ -1045,7 +1045,7 @@ p {
         on the comment for 1.
 \*------------------------------------*/
 .graphDivider {
-  stroke: #ed7d6c;
+  stroke: #f85d41;
   /* 2. */
 }
 
@@ -1053,7 +1053,7 @@ p {
   /* 1. */
   fill: none;
   shape-rendering: crispEdges;
-  stroke: #ed7d6c;
+  stroke: #f85d41;
   /* 2. */
 }
 .axis text {
@@ -1120,7 +1120,7 @@ p {
   /* Overriding the specificity of the .lineItem-* classes. */
 }
 .lineItem:hover {
-  background-color: #e54028;
+  background-color: #e52a08;
 }
 .lineItem:hover a, .lineItem:hover span {
   color: #fff;
