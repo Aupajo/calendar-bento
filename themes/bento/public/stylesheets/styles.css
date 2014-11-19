@@ -858,11 +858,20 @@ p {
   overflow: hidden;
   /* Hide the sbox shadow of the footer */
   padding: 20px;
+  padding-bottom: 90px;
   position: relative;
   top: 50px;
   width: 940px;
 }
 
+@media (max-width: 940px) {
+  .modal {
+    left: 0;
+    margin: 0 20px;
+    right: 0;
+    width: auto;
+  }
+}
 .modalHeader {
   margin-bottom: 20px;
 }
@@ -879,19 +888,17 @@ p {
 
 .modalFooter {
   border-radius: 0 0 5px 5px;
-  bottom: -20px;
+  bottom: 0;
   box-shadow: 0 0 5px 0 #ccc;
   height: 70px;
   left: -20px;
-  position: relative;
-  width: 940px;
+  position: absolute;
+  right: -20px;
 }
 
 .modalFooter--buttonHolder {
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+  padding-top: 15px;
 }
 
 /**
@@ -936,7 +943,7 @@ p {
 /*------------------------------------*\
     #CELLS
 
-    1.  Reasonable complex nth-child combinations that will take care of any number
+    1.  Reasonably complex nth-child combinations that will take care of any number
         of cells, provided they are always displayed in groups of three. All styles
         listed here need to be modified for any media queries in use (provided the
         queries requires these to be modified - currently hinges on the responsive grid
@@ -966,6 +973,38 @@ p {
   border-right: 1px solid #ccc;
 }
 
+@media (max-width: 540px) {
+  /* Only two cells per row instead of three */
+  .sourcesGridCell {
+    /* Undo from desktop. Cascade takes care of putting the right borders
+      back in if necessary */
+    /* Ensure that we always have a right border on the final cell */
+  }
+  .sourcesGridCell:nth-child(3) {
+    border-left: none;
+    border-top: none;
+  }
+  .sourcesGridCell:nth-child(3n - 2) {
+    border-left: none;
+    border-right: none;
+  }
+  .sourcesGridCell:nth-child(1), .sourcesGridCell:nth-child(2) {
+    border-top: 1px solid #ccc;
+  }
+  .sourcesGridCell:nth-child(2n), .sourcesGridCell:nth-child(2n - 1) {
+    border-right: 1px solid #ccc;
+  }
+  .sourcesGridCell:nth-child(2n) {
+    border-right: 1px solid #ccc;
+  }
+  .sourcesGridCell:nth-child(2n - 1) {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+  }
+  .sourcesGridCell:last-child {
+    border-right: 1px solid #ccc;
+  }
+}
 /*------------------------------------*\
     #CHECKS
 
@@ -1012,8 +1051,11 @@ p {
   display: block;
   font-size: 14px;
   line-height: 40px;
+  overflow-x: hidden;
   padding-left: 45px;
   position: absolute;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   width: 100%;
   z-index: 2;
 }
