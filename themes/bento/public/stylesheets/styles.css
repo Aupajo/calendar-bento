@@ -786,10 +786,18 @@ p {
     font-size: 32px;
   }
 }
-.headerLink {
+.headerAction {
+  background: none;
+  border: none;
   color: #fff;
   font-weight: bold;
+  padding: 2px 1px 1px;
   text-decoration: underline;
+}
+.headerAction:hover, .headerAction:focus {
+  background: white;
+  color: #e52a08;
+  text-decoration: none;
 }
 
 /*------------------------------------*\
@@ -811,20 +819,20 @@ p {
 /**
  * The navigation that sits in the header. Placed up the top right hand side.
  */
-.headerNavigation {
+.headerActions {
   position: absolute;
   right: 0;
   top: 0;
 }
 
 @media (max-width: 940px) {
-  .headerNavigation {
+  .headerActions {
     left: 0;
     top: 60px;
   }
 }
 @media (max-width: 540px) {
-  .headerNavigation {
+  .headerActions {
     top: 30px;
   }
 }

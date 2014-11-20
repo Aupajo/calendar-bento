@@ -42,8 +42,17 @@
   }
 }
 
-.headerLink {
+.headerAction {
+    background: none;
+    border: none;
     color: $headerText;
     font-weight: bold;
+    padding: 2px 1px 1px;
     text-decoration: underline;
+
+    &:hover, &:focus {
+        background: white;
+        color: $primary;
+        text-decoration: none;
+    }
 }

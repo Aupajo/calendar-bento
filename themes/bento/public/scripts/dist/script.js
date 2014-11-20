@@ -499,9 +499,6 @@ $(function() {
                     $navLinks.each(function(index, link) {
                         if (link === target) {
                             me.showDialog(link);
-                            me.setAriaSelectedState(link, true);
-                        }  else {
-                            me.setAriaSelectedState(link, false);
                         }
                     });
                 },
@@ -546,10 +543,6 @@ $(function() {
                         $modalContainer.height($body.height());
                         $modalContainer.width($body.width());
                     }
-                },
-                /* Sets an elements aria selected state */
-                setAriaSelectedState: function(el, state) {
-                    $(el).attr('aria-selected', state);
                 }
 
             };
