@@ -1,13 +1,14 @@
-<div class="modalContainer u-hidden js-modalContainer" id="section-customise" role="dialog" aria-labelledby="customise-label">
+<section class="modalContainer u-hidden js-modalContainer" id="section-customise" role="dialog" aria-labelledby="customise-label" aria-describedby="customise-desc">
   <div class="modal">
-    <div class="modalHeader">
-      <h2 id="calender-label" class="modalTitle">Customise</h2>
-    </div>
+    <header class="modalHeader">
+      <h2 id="customise-label" class="modalTitle">Customise</h2>
+      <p id="customise-desc">Select which event sources you want to include in the listing</p>
+    </header>
     <div class="modalBody">
-      <p>Select which event sources you want to include in the listing</p>
+      
 
-      <section class="sources js-source">
-        <h3 class="sourcesTitle">Design sources <span class="sourcesSelected js-sourceTotalCount">(7 of 9 selected)</span></h3>
+      <fieldset class="sources js-source">
+        <legend class="sourcesTitle" aria-live="polite">Design sources <span class="sourcesSelected js-sourceTotalCount">(7 of 9 selected)</span></legend>
         <input type="checkbox" id="allDesignSources" class="u-hidden sourcesCheck js-sourceTotalCheck">
         <span class="sourcesCheckDisplay sourcesCheckDisplay-circle"></span>
         <label class="sourcesLabel" for="allDesignSources"><strong>All design sources</strong></label>
@@ -58,10 +59,10 @@
             <label class="sourcesLabel" for="webstock">Webstock</label>
           </div>
         </div>
-      </section>
+      </fieldset>
 
-      <section class="sources js-source">
-        <h3 class="sourcesTitle">Dev sources <span class="sourcesSelected js-sourceTotalCount">(2 of 4 selected)</span></h3>
+      <fieldset class="sources js-source">
+        <legend class="sourcesTitle" aria-live="polite">Dev sources <span class="sourcesSelected js-sourceTotalCount">(2 of 4 selected)</span></legend>
         <input type="checkbox" id="allDevSources" class="u-hidden sourcesCheck js-sourceTotalCheck">
         <span class="sourcesCheckDisplay sourcesCheckDisplay-circle"></span>
         <label class="sourcesLabel" for="allDevSources"><strong>All technology sources</strong></label>
@@ -87,13 +88,13 @@
             <label class="sourcesLabel" for="netUsergroup">.NET Usergroup</label>
           </div>
         </div>
-      </section>
+      </fieldset>
     </div>
-    <div class="modalFooter">
+    <footer class="modalFooter">
       <div class="modalFooter--buttonHolder">
-        <a href="#" class="button button-primary">Update</a>
-        <a href="#" class="button button-secondary js-closeDialog" aria-controls="section-customise">Cancel</a>
+        <button class="button button-primary">Update</button>
+        <button class="button button-secondary js-closeDialog" aria-controls="section-customise">Cancel</button>
       </div>
-    </div>
+    </footer>
   </div>
-</div>
+</section>

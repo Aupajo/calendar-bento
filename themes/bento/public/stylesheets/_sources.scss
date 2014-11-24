@@ -12,6 +12,8 @@
     #CONTAINER
 \*------------------------------------*/
  .sources {
+    border: none;
+    margin: 20px 0 0;
     padding: 10px 0;
     position: relative;
 }
@@ -20,11 +22,10 @@
     #TEXT
 \*------------------------------------*/
 .sourcesTitle {
-    border-bottom: 1px solid $secondary;
+    border: none;
     font-family: $helvetica;
     font-size: $betaTextSize - 2;
     margin: 0;
-    padding-bottom: 10px;
 }
 
 .sourcesSelected {
@@ -135,7 +136,7 @@ $negDimension: $dimension * -1;
     z-index: 1;
 
     &-circle {
-        top: $dimension + 10;
+        top: 13px;
     }
 }
 
