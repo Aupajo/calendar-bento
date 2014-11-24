@@ -5,8 +5,10 @@ require 'active_support/core_ext/date_time'
 require 'active_support/core_ext/numeric/time'
 require 'yaml'
 
+meetup_api_key = ENV['MEETUP_API_KEY']
+
 begin
-  config = YAML.load_file('config.yml')
+  meetup_api_key ||= YAML.load_file('config.yml')['meetup_api_key']
 rescue Errno::ENOENT
   abort "Did you create config.yml? See the README."
 end
@@ -22,7 +24,7 @@ Almanack.config do |c|
   )
 
   groups.each do |group|
-    c.add_meetup_group group_urlname: group, key: config["meetup_api_key"]
+    c.add_meetup_group group_urlname: group, key: meetup_api_key
   end
 end
 
