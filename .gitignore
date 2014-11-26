@@ -3,4 +3,4 @@ Thumbs.db
 config.yml
 .sass-cache
 node_modules
-.css.map
+*.css.map
