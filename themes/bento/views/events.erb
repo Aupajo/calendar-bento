@@ -2,7 +2,7 @@
 
 <main class="l-mainContent" role="main">  
   <% calendar.events.group_by { |event| event.start_time.strftime('%B') }.each do |month, events| %>
-  <section class="monthEvents" role="region" aria-labelledby="<%= month %>">
+  <section class="month-events" role="region" aria-labelledby="<%= month %>">
     <h2 id="<%= month %>" class="title"><%= month %></h2>
     <ul>
       <% events.each do |event| %>
