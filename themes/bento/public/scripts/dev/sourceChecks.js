@@ -85,9 +85,9 @@ $(function() {
                     // For each group of sources, create a collection of related elements
                     sourceHolders.each(function(index, source) {
                         var $source = $(source),
-                        $sourceTotalCheck,
-                        $sourceTotalCount,
-                        $sourceChecks;
+                            $sourceTotalCheck,
+                            $sourceTotalCount,
+                            $sourceChecks;
 
                         $sourceTotalCheck = $source.find('.js-sourceTotalCheck');
                         $sourceTotalCount = $source.find('.js-sourceTotalCount');
