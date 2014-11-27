@@ -1,14 +1,17 @@
 <% title 'Upcoming events' %>
 
-<main class="l-mainContent" id="section-design" role="main" aria-labelledby="calender-label">
-  <section>
-    <% calendar.events.group_by { |event| event.start_time.strftime('%B') }.each do |month, events| %>
-    <h2 class="title"><%= month %></h2>
+<main class="l-mainContent" role="main">  
+  <% calendar.events.group_by { |event| event.start_time.strftime('%B') }.each do |month, events| %>
+  <section class="monthEvents" role="region" aria-labelledby="<%= month %>">
+    <h2 id="<%= month %>" class="title"><%= month %></h2>
+    <ul>
       <% events.each do |event| %>
         <%= erb :event, locals: { event: event } %>
       <% end %>
-    <% end %>
-  </section>
+    </ul>
+  </section>  
+  <% end %>
+  
 
   <p>That's it! Those are all the design events currently listed.</p>
   <p>Check back whenever for updates.</p>

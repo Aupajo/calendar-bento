@@ -276,7 +276,7 @@ label {
 }
 
 main {
-  padding-bottom: 35px;
+  padding: 17.5px 0 35px;
 }
 
 section {
@@ -1139,6 +1139,18 @@ p {
   border-bottom: 1px solid #ccc;
 }
 
+/*-------------------------------------*\
+    #MONTH OF EVENTS
+\*-------------------------------------*/
+.monthEvents {
+  padding: 0;
+}
+.monthEvents ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 /*------------------------------------*\
     #LINE ITEMS
 
@@ -1155,9 +1167,6 @@ p {
 \*------------------------------------*/
 .lineItemHolder {
   border-bottom: 1px solid #ccc;
-}
-.lineItemHolder:last-child {
-  border-bottom: none;
 }
 
 .lineItem {
