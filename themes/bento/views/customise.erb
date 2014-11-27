@@ -5,90 +5,24 @@
       <p id="customise-desc">Select which event sources you want to include in the listing</p>
     </header>
     <div class="modalBody">
-      
+
 
       <fieldset class="sources js-source">
-        <legend class="sourcesTitle" aria-live="polite">Design sources <span class="sourcesSelected js-sourceTotalCount">(7 of 9 selected)</span></legend>
-        <input type="checkbox" id="allDesignSources" class="u-hidden sourcesCheck js-sourceTotalCheck">
+        <legend class="sourcesTitle" aria-live="polite">Sources <span class="sourcesSelected js-sourceTotalCount">(7 of 9 selected)</span></legend>
+        <input type="checkbox" id="allSources" class="u-hidden sourcesCheck js-sourceTotalCheck" checked="checked">
         <span class="sourcesCheckDisplay sourcesCheckDisplay-circle"></span>
-        <label class="sourcesLabel" for="allDesignSources"><strong>All design sources</strong></label>
-        <div class="pure-g sourcesGrid">
-          <div class="pure-u-1-3 sourcesGridCell">
-            <input type="checkbox" id="cssWellington" class="u-hidden sourcesCheck js-sourceCheck">
-            <span class="sourcesCheckDisplay"></span>
-            <label class="sourcesLabel" for="cssWellington">CSS Wellington</label>
-          </div>
-          <div class="pure-u-1-3 sourcesGridCell">
-            <input type="checkbox" id="designPro" class="u-hidden sourcesCheck js-sourceCheck" checked>
-            <span class="sourcesCheckDisplay"></span>
-            <label class="sourcesLabel" for="designPro">Design Pro</label>
-          </div>
-          <div class="pure-u-1-3 sourcesGridCell">
-            <input type="checkbox" id="uxWellington" class="u-hidden sourcesCheck js-sourceCheck" checked>
-            <span class="sourcesCheckDisplay"></span>
-            <label class="sourcesLabel" for="uxWellington">UX Wellington</label>
-          </div>
-          <div class="pure-u-1-3 sourcesGridCell">
-            <input type="checkbox" id="creativeToolsMeetup" class="u-hidden sourcesCheck js-sourceCheck" checked>
-            <span class="sourcesCheckDisplay"></span>
-            <label class="sourcesLabel" for="creativeToolsMeetup">Creative Tools Meetup</label>
-          </div>
-          <div class="pure-u-1-3 sourcesGridCell">
-            <input type="checkbox" id="designThinking" class="u-hidden sourcesCheck js-sourceCheck" checked>
-            <span class="sourcesCheckDisplay"></span>
-            <label class="sourcesLabel" for="designThinking">Design &amp; Thinking</label>
-          </div>
-          <div class="pure-u-1-3 sourcesGridCell">
-            <input type="checkbox" id="typeMeet" class="u-hidden sourcesCheck js-sourceCheck" checked>
-            <span class="sourcesCheckDisplay"></span>
-            <label class="sourcesLabel" for="typeMeet">TypeMeet</label>
-          </div>
-          <div class="pure-u-1-3 sourcesGridCell">
-            <input type="checkbox" id="designCinema" class="u-hidden sourcesCheck js-sourceCheck" checked>
-            <span class="sourcesCheckDisplay"></span>
-            <label class="sourcesLabel" for="designCinema">Design Cinema</label>
-          </div>
-          <div class="pure-u-1-3 sourcesGridCell">
-            <input type="checkbox" id="photographyMeetup" class="u-hidden sourcesCheck js-sourceCheck" checked>
-            <span class="sourcesCheckDisplay"></span>
-            <label class="sourcesLabel" for="photographyMeetup">Photography Meetup</label>
-          </div>
-          <div class="pure-u-1-3 sourcesGridCell">
-            <input type="checkbox" id="webstock" class="u-hidden sourcesCheck js-sourceCheck" checked>
-            <span class="sourcesCheckDisplay"></span>
-            <label class="sourcesLabel" for="webstock">Webstock</label>
-          </div>
+        <label class="sourcesLabel" for="allSources"><strong>All sources</strong></label>
+        <div class="pure-g sourcesGrid" id="sourceTemplateContainer">
+            <div id="sourceTemplate">
+                <div class="pure-u-1-3 sourcesGridCell">
+                    <input type="checkbox" id="{{formattedName}}" class="u-hidden sourcesCheck js-sourceCheck" checked="checked">
+                    <span class="sourcesCheckDisplay"></span>
+                    <label class="sourcesLabel" for="{{formattedName}}">{{name}}</label>
+                </div>
+            </div>
         </div>
       </fieldset>
 
-      <fieldset class="sources js-source">
-        <legend class="sourcesTitle" aria-live="polite">Dev sources <span class="sourcesSelected js-sourceTotalCount">(2 of 4 selected)</span></legend>
-        <input type="checkbox" id="allDevSources" class="u-hidden sourcesCheck js-sourceTotalCheck">
-        <span class="sourcesCheckDisplay sourcesCheckDisplay-circle"></span>
-        <label class="sourcesLabel" for="allDevSources"><strong>All technology sources</strong></label>
-        <div class="pure-g sourcesGrid">
-          <div class="pure-u-1-3 sourcesGridCell">
-            <input type="checkbox" id="agileWellington" class="u-hidden sourcesCheck js-sourceCheck">
-            <span class="sourcesCheckDisplay"></span>
-            <label class="sourcesLabel" for="agileWellington">Agile Wellington</label>
-          </div>
-          <div class="pure-u-1-3 sourcesGridCell">
-            <input type="checkbox" id="machintoshSociety" class="u-hidden sourcesCheck js-sourceCheck" checked>
-            <span class="sourcesCheckDisplay"></span>
-            <label class="sourcesLabel" for="machintoshSociety">Macintosh Society</label>
-          </div>
-          <div class="pure-u-1-3 sourcesGridCell">
-            <input type="checkbox" id="sharepointUsergroup" class="u-hidden sourcesCheck js-sourceCheck">
-            <span class="sourcesCheckDisplay"></span>
-            <label class="sourcesLabel" for="sharepointUsergroup">Sharepoint Usergroup</label>
-          </div>
-          <div class="pure-u-1-3 sourcesGridCell">
-            <input type="checkbox" id="netUsergroup" class="u-hidden sourcesCheck js-sourceCheck" checked>
-            <span class="sourcesCheckDisplay"></span>
-            <label class="sourcesLabel" for="netUsergroup">.NET Usergroup</label>
-          </div>
-        </div>
-      </fieldset>
     </div>
     <footer class="modalFooter">
       <div class="modalFooter--buttonHolder">
