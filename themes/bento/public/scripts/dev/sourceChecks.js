@@ -12,6 +12,8 @@ $(function() {
      * - The total for a group of sources has the class `js-sourceTotalCount`
      * - The checkbox that can check all or none of the related sources has a class of `js-sourceTotalCheck
      * - There is also an HTML layout assumption
+     * - There is a base 'template' in the DOM with an id of `sourceTemplate` and where the generated elements
+     *   are to be inserted is inside an element with the id `sourceTemplateContainer`
      *
      * Layout:
      * `.js-source` contains all event source checkboxes and the total counts and total check elements
@@ -23,14 +25,73 @@ $(function() {
             sourceChecks = {
                 /* Called when a new instance of `SourceChecks` is instantiated */
                 init: function() {
-                    var sourceHolders = $('.js-source');
+                    this.createCheckHtml();
+                    this.populateSourceArray();
+                    this.bindEvents();
+                    this.sourceColumnSetup();
+                },
+                /*
+                 * Creates the source checkbox templates based on a 'template' in the dom. Simply grabs the
+                 * template html, replaces a couple of handlebar-like strings, and inserts a new dom node.
+                 *
+                 * Note: we could have used a proper FE template engine here but I can't see the benefit yet
+                 * of adding that overhead for this single use
+                 */
+                createCheckHtml: function() {
+                    /* Creates a camelCase version of the string that is passed through */
+                    function formatName(name) {
+                        var returnText = "";
+                        for (var i = 0, len = name.length; i < len; i++) {
+                            var c = name[i];
+                            if (c === ' ') {
+                                // Capitalise the next character and ignore the space
+                                i++;
+                                try {
+                                    c = name[i].toUpperCase();
+                                } catch(e) {
+                                    continue;
+                                }
+                            }
+                            returnText += c;
+                        }
+                        return returnText;
+                    }
+
+                    var $container = $('#sourceTemplateContainer'),
+                        $template = $('#sourceTemplate'),
+                        templateHtml = $template.html();
+
+                    window.CAL.eventSources.forEach(function(cal) {
+                        // Make sure we have something to work with here
+                        if (!cal.name) {
+                            return;
+                        }
+                        var sourceHtml = templateHtml.replace(/{{name}}/g, cal.name)
+                            .replace(/{{formattedName}}/g, formatName(cal.name));
+                        $container.append(sourceHtml);
+                    });
+
+                    $template.remove();
+                },
+                /*
+                 * We keep an array of all the checkboxes and their associated metadata
+                 * This function scours the dom for these checkboxes and populates the
+                 * array
+                 */
+                populateSourceArray: function() {
+                    var me = this,
+                        sourceHolders = $('.js-source');
 
                     // For each group of sources, create a collection of related elements
                     sourceHolders.each(function(index, source) {
                         var $source = $(source),
-                            $sourceTotalCheck = $source.find('.js-sourceTotalCheck'),
-                            $sourceTotalCount = $source.find('.js-sourceTotalCount'),
-                            $sourceChecks = $source.find('.js-sourceCheck');
+                            $sourceTotalCheck,
+                            $sourceTotalCount,
+                            $sourceChecks;
+
+                        $sourceTotalCheck = $source.find('.js-sourceTotalCheck');
+                        $sourceTotalCount = $source.find('.js-sourceTotalCount');
+                        $sourceChecks = $source.find('.js-sourceCheck');
 
                         sources.push({
                             totalCheck: $sourceTotalCheck,
@@ -38,11 +99,10 @@ $(function() {
                             sourceChecks: $sourceChecks
                         });
 
+                        me.updateTotalCheckCount(null, $sourceTotalCount, ['(All', $sourceChecks.length, 'selected)'].join(' '));
+
+
                     });
-
-                    this.bindEvents();
-                    this.sourceColumnSetup();
-
                 },
                 /* Binds any events onto the elements contained within the `sources` array generated
                    in the `init()` function */
