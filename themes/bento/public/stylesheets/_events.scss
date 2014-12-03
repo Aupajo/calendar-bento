@@ -14,7 +14,7 @@
     font-weight: 100;
     margin: 0;
     padding: 20px 0 10px 0;
-    border-bottom: 1px solid $secondary;
+    border-bottom: 1px solid lighten($hr, 20%);
 }
 
 /*-------------------------------------*\
@@ -47,7 +47,7 @@
 \*------------------------------------*/
 
 .lineItemHolder {
-    border-bottom: 1px solid $secondary;
+    border-bottom: 1px solid lighten($hr, 10%);
 }
 
 .lineItem {
@@ -84,7 +84,7 @@
 
 /* Shared placedhlders for common metadata properties */
 %hasBottomBorder {
-    border-bottom: 1px solid $secondary;
+    border-bottom: 1px solid lighten($hr, 20%);
 }
 
 %bodyText {

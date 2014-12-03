@@ -1140,7 +1140,7 @@ p {
   font-weight: 100;
   margin: 0;
   padding: 20px 0 10px 0;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #999999;
 }
 
 /*-------------------------------------*\
@@ -1170,7 +1170,7 @@ p {
     3.  We want any links within a line item to take up the entire parent container.
 \*------------------------------------*/
 .lineItemHolder {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid gray;
 }
 
 .lineItem {
@@ -1202,7 +1202,7 @@ p {
 
 /* Shared placedhlders for common metadata properties */
 .lineItem-time, .lineItem-group, .lineItem-title, .lineItem-location {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #999999;
 }
 
 .lineItem-day, .lineItem-date, .lineItem-time, .lineItem-title, .lineItem-location {
