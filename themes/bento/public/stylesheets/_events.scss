@@ -100,7 +100,7 @@
     font-family: $megaphone;
     font-size: $betaTextSize;
     height: ($spacing * 2) + $betaTextSize;
-    padding-top: $spacing;
+    padding-top: ($betaTextSize / 2) - 3;
 }
 
 .lineItem-day {
