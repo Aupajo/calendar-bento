@@ -825,6 +825,11 @@ p {
   top: 0;
 }
 
+@media (min-width: 940px) {
+  .headerActions {
+    margin-top: 10px;
+  }
+}
 @media (max-width: 940px) {
   .headerActions {
     left: 0;
