@@ -106,8 +106,8 @@
 .lineItem-day {
     @extend %bodyText;
 
-    left: 0;
-    text-align: center;
+    left: $eventDayLeft;
+    text-align: left;
     width: $dayPercent;
 }
 

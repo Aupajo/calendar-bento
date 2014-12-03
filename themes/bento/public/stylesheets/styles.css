@@ -1220,8 +1220,8 @@ p {
 }
 
 .lineItem-day {
-  left: 0;
-  text-align: center;
+  left: 10px;
+  text-align: left;
   width: 5.31915%;
 }
 
