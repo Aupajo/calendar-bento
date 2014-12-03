@@ -1244,11 +1244,12 @@ p {
 
 .lineItem-title {
   left: 48.40426%;
-  width: 28.19149%;
+  padding-right: 1.06383%;
+  width: 27.65957%;
 }
 
 .lineItem-location {
-  left: 76.59574%;
+  left: 76.06383%;
   padding-right: 15px;
   text-align: right;
   width: 23.40426%;

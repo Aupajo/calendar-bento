@@ -133,7 +133,7 @@
     @extend %hasBottomBorder;
 
     left: $dayPercent + $datePercent + $timePercent;
-    width: $groupPercent;;
+    width: $groupPercent;
 }
 
 .lineItem-title {
@@ -141,6 +141,7 @@
     @extend %hasBottomBorder;
 
     left: $dayPercent + $datePercent + $timePercent + $groupPercent;
+    padding-right: $titleRightPaddingPercent;
     width: $titlePercent;
 }
 
