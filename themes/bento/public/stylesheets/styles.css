@@ -255,6 +255,8 @@ table {
 
 body {
   font-weight: 100;
+  min-height: 100vh;
+  position: relative;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -812,7 +814,11 @@ p {
 \*------------------------------------*/
 .footer {
   background-color: #e52a08;
+  bottom: 0;
   height: 30px;
+  left: 0px;
+  position: absolute;
+  right: 0px;
 }
 
 /**
