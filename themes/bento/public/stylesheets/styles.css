@@ -255,6 +255,8 @@ table {
 
 body {
   font-weight: 100;
+  min-height: 100vh;
+  position: relative;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -778,7 +780,6 @@ p {
   letter-spacing: 1px;
   margin: 0;
   text-indent: -4px;
-  text-shadow: 0 -1px 1px #b42106;
 }
 
 @media (max-width: 540px) {
@@ -813,7 +814,11 @@ p {
 \*------------------------------------*/
 .footer {
   background-color: #e52a08;
+  bottom: 0;
   height: 30px;
+  left: 0px;
+  position: absolute;
+  right: 0px;
 }
 
 /**
@@ -825,6 +830,11 @@ p {
   top: 0;
 }
 
+@media (min-width: 940px) {
+  .headerActions {
+    margin-top: 10px;
+  }
+}
 @media (max-width: 940px) {
   .headerActions {
     left: 0;
@@ -1126,7 +1136,8 @@ p {
  *
  * Text..................Text styles that are only relevant to the events
  * Line item.............Lineitem layout
- * LIne item details.....Styling of meta data within a line item
+ * Line item details.....Styling of meta data within a line item
+ * Subtext...............Info that sits right down the bottom of the page
  */
 /*------------------------------------*\
     #TEXT
@@ -1136,7 +1147,7 @@ p {
   font-weight: 100;
   margin: 0;
   padding: 20px 0 10px 0;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #999999;
 }
 
 /*-------------------------------------*\
@@ -1166,7 +1177,7 @@ p {
     3.  We want any links within a line item to take up the entire parent container.
 \*------------------------------------*/
 .lineItemHolder {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid gray;
 }
 
 .lineItem {
@@ -1198,7 +1209,7 @@ p {
 
 /* Shared placedhlders for common metadata properties */
 .lineItem-time, .lineItem-group, .lineItem-title, .lineItem-location {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #999999;
 }
 
 .lineItem-day, .lineItem-date, .lineItem-time, .lineItem-title, .lineItem-location {
@@ -1212,18 +1223,18 @@ p {
   font-family: Megaphone, Impact;
   font-size: 24px;
   height: 50px;
-  padding-top: 13px;
+  padding-top: 9px;
 }
 
 .lineItem-day {
-  left: 0;
-  text-align: center;
+  left: 10px;
+  text-align: left;
   width: 5.31915%;
 }
 
 .lineItem-date {
   left: 5.31915%;
-  text-align: center;
+  text-align: left;
   width: 4.25532%;
 }
 
@@ -1239,11 +1250,12 @@ p {
 
 .lineItem-title {
   left: 48.40426%;
-  width: 28.19149%;
+  padding-right: 1.06383%;
+  width: 27.65957%;
 }
 
 .lineItem-location {
-  left: 76.59574%;
+  left: 76.06383%;
   padding-right: 15px;
   text-align: right;
   width: 23.40426%;
@@ -1293,6 +1305,12 @@ p {
     top: 50px;
     width: 30%;
   }
+}
+/*------------------------------------*\
+#SUBTEXT
+\*------------------------------------*/
+.subText {
+  padding-top: 52.5px;
 }
 
 /*# sourceMappingURL=styles.css.map */

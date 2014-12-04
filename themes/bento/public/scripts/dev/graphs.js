@@ -24,7 +24,7 @@ $(function() {
         if (!prev) {
           return curr.events.map(extendEventData);
         }
-        return prev.concat(curr.events.map(extendEventData))
+        return prev.concat(curr.events.map(extendEventData));
     }
 
     /* Creates a moment object for an objects `startTime` property (expected use in _.map) */
@@ -32,7 +32,7 @@ $(function() {
         d.startDate = new moment(d.startTime);
 
         return d;
-    };
+    }
 
     /* Group by month of the year (expected use in _.groupBy)*/
     function groupByMonth(d) {
@@ -260,7 +260,7 @@ $(function() {
             maxY = 9,
             x = d3.scale.ordinal()
                 .domain(monthData.data.map(returnDate))
-                .rangeRoundBands([0, monthData.width], .05),
+                .rangeRoundBands([0, monthData.width], 0.05),
             y = d3.scale.linear()
                 .domain([0, maxY])
                 .range([0, containerElHeight - margin - 15]),
@@ -355,7 +355,7 @@ $(function() {
       graphData.forEach(function(month, index, graphData) {
           month.index = index;
           month.totalMonths = graphData.length;
-          displayMonth(month)
+          displayMonth(month);
       });
     }
 
