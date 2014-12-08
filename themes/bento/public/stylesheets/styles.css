@@ -1083,6 +1083,7 @@ p {
  * CONTENTS
  *
  * Holder................Any container specific styles we need
+ * Scroller..............The element that makes the graph holder x-scroll on small screens
  * Axis..................Details to do with the resulting SVG axis
  */
 /*------------------------------------*\
@@ -1090,6 +1091,7 @@ p {
 \*------------------------------------*/
 .graphHolder {
   height: 60px;
+  width: 940px;
 }
 
 @media (max-width: 940px) {
@@ -1097,6 +1099,14 @@ p {
     margin-top: 32px;
   }
 }
+/*------------------------------------*\
+    #SCROLLER
+\*------------------------------------*/
+.graphScroller {
+  overflow: hidden;
+  overflow-x: scroll;
+}
+
 /*------------------------------------*\
     #AXIS
 
