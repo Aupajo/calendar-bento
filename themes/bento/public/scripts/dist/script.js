@@ -2,13 +2,7 @@ $(function() {
     // Graph container and dimensions
     var $containerEl = $('.js-graph'),
         containerElWidth = $containerEl.width(),
-        containerElHeight = $containerEl.height(),
-        lazyGraphRemoval = _.debounce(destroyGraphs, 10),
-        lazyGraphRecalculation = _.debounce(showResizedGraphs, 150);
-
-    // Bind window resize event to destroy andrecalculate graphs on browser window size change
-    $(window).on('resize', lazyGraphRemoval);
-    $(window).on('resize', lazyGraphRecalculation);
+        containerElHeight = $containerEl.height();
 
     // Right. Let's do this.
     showGraphs();
@@ -81,7 +75,7 @@ $(function() {
             dateLabel: firstItem.startDate.format('MMM'),
             month: firstItem.startDate.format('MM'),
             year: firstItem.startDate.format('YYYY')
-        }
+        };
     }
 
     /* Build the expeced data structure for a day of events (expected use in _.map) */
@@ -105,7 +99,7 @@ $(function() {
                 if (!currentDay) {
                     continue;
                 }
-                if (currentDay.dateKey == dateKey) {
+                if (currentDay.dateKey === dateKey) {
                     return currentDay;
                 }
             }
@@ -266,7 +260,7 @@ $(function() {
                 .range([0, containerElHeight - margin - 15]),
             xAxis = d3.svg.axis()
                 .scale(x)
-                .orient("bottom"),
+                .orient('bottom'),
             yAxis = d3.svg.axis()
                 .orient('left'),
             xAxisTickClass = monthData.showAxisLines ? 'axis' : 'axis axis-hideTicks',
@@ -282,50 +276,50 @@ $(function() {
             .append('g');
 
         // Create the individual bars for the graph
-        svg.selectAll("rect")
+        svg.selectAll('rect')
             .data(monthData.data)
-            .enter().append("rect")
-            .style("fill", "white")
-            .attr("x", function(d) { return x(returnDate(d)); })
-            .attr("width", x.rangeBand())
+            .enter().append('rect')
+            .style('fill', 'white')
+            .attr('x', function(d) { return x(returnDate(d)); })
+            .attr('width', x.rangeBand())
             // Note: below the -1 creates a 1px gap between the axis the bar
-            .attr("y", function(d) {
+            .attr('y', function(d) {
                 var count = d.count > maxY ? maxY : d.count;
                 return containerElHeight - lineHeight - 1 - y(count);
             })
-            .attr("height", function(d) { return y(d.count) || 0; })
+            .attr('height', function(d) { return y(d.count) || 0; })
             // monthData.width / monthData.count / 2 => offset the axis by half a bar to get the axis dashes in the right place
-            .attr("transform", "translate(" + barOffset + ", 0)")
+            .attr('transform', 'translate(' + barOffset + ', 0)')
             .attr('class', 'graphBar');
 
         // Create the x axis
         // containerElHeight - lineHeight => makes room for the label the label sits
-        svg.append("g")
-            .attr("class", xAxisTickClass)
-            .attr("transform", "translate(0," + (containerElHeight - lineHeight) + ")")
+        svg.append('g')
+            .attr('class', xAxisTickClass)
+            .attr('transform', 'translate(0,' + (containerElHeight - lineHeight) + ')')
             .call(xAxis);
 
         // Start axis line divider
-        svg.append("rect")
-            .attr("class", 'graphDivider')
-            .attr("height", 20)
-            .attr("width", 1)
-            .attr("transform", "translate(0," + (containerElHeight - lineHeight) + ")");
+        svg.append('rect')
+            .attr('class', 'graphDivider')
+            .attr('height', 20)
+            .attr('width', 1)
+            .attr('transform', 'translate(0,' + (containerElHeight - lineHeight) + ')');
 
         if (monthData.index + 1 === monthData.totalMonths) {
             // End axis line divider
-            svg.append("rect")
-                .attr("class", 'graphDivider')
-                .attr("height", 20)
-                .attr("width", 1)
-                .attr("transform", "translate(" + (monthData.width - 1) + "," + (containerElHeight - lineHeight) + ")");
+            svg.append('rect')
+                .attr('class', 'graphDivider')
+                .attr('height', 20)
+                .attr('width', 1)
+                .attr('transform', 'translate(' + (monthData.width - 1) + ',' + (containerElHeight - lineHeight) + ')');
         }
 
         // Append the text to the axis
-        svg.append("text")
-            .attr("class", "axisLabel")
-            .attr("transform", "translate(" + (monthData.width / 2) + " ," + containerElHeight +")")
-            .style("text-anchor", "middle")
+        svg.append('text')
+            .attr('class', 'axisLabel')
+            .attr('transform', 'translate(' + (monthData.width / 2) + ' ,' + containerElHeight +')')
+            .style('text-anchor', 'middle')
             .text(monthData.label);
 
     }
@@ -333,7 +327,7 @@ $(function() {
     /* Actually utlise all the functions above and create the graphs */
     function showGraphs() {
       // Sort and group all our data into to the correct format
-      var sortedDates = _.chain(CAL.eventSources)
+      var sortedDates = _.chain(window.CAL.eventSources)
           .reduce(getSourcesEventData, [])
           .map(createStartDate)
           .sortBy(function(d) {
@@ -343,11 +337,10 @@ $(function() {
                   .minutes(0)
                   .seconds(0)
                   .milliseconds(0)
-                  .toDate()
+                  .toDate();
               })
           .groupBy(groupByMonth)
-          .map(buildMonthData).value(),
-          numberOfMonths = sortedDates.length;
+          .map(buildMonthData).value();
 
       var graphData = buildMultigraphData(sortedDates);
 
@@ -357,20 +350,6 @@ $(function() {
           month.totalMonths = graphData.length;
           displayMonth(month);
       });
-    }
-
-    /* Destroy the current graphs */
-    function destroyGraphs() {
-      $containerEl.html('');
-    }
-
-    /* Rebuilds graphs and recalculate the appropriate graph dimensions */
-    function showResizedGraphs() {
-      // Recaulate the closure variables for the new element sizes
-      containerElWidth = $containerEl.width(),
-      containerElHeight = $containerEl.height();
-
-      showGraphs();
     }
 });
 ;$(function() {

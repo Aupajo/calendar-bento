@@ -260,6 +260,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Adds a slight border on the sides of the main content for smaller devices */
+@media (max-width: 940px) {
+  body {
+    border-left: 3px solid #e52a08;
+    border-right: 3px solid #e52a08;
+  }
+}
 a {
   color: #e52a08;
   text-decoration: none;
@@ -1083,6 +1090,7 @@ p {
  * CONTENTS
  *
  * Holder................Any container specific styles we need
+ * Scroller..............The element that makes the graph holder x-scroll on small screens
  * Axis..................Details to do with the resulting SVG axis
  */
 /*------------------------------------*\
@@ -1090,6 +1098,7 @@ p {
 \*------------------------------------*/
 .graphHolder {
   height: 60px;
+  width: 940px;
 }
 
 @media (max-width: 940px) {
@@ -1097,6 +1106,14 @@ p {
     margin-top: 32px;
   }
 }
+/*------------------------------------*\
+    #SCROLLER
+\*------------------------------------*/
+.graphScroller {
+  overflow: hidden;
+  overflow-x: scroll;
+}
+
 /*------------------------------------*\
     #AXIS
 
