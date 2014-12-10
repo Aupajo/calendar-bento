@@ -4,3 +4,4 @@ config.yml
 .sass-cache
 node_modules
 *.css.map
+tmp/*

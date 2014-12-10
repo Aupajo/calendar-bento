@@ -17,6 +17,10 @@ Almanack.config do |c|
   c.title = "Event Calendar"
   c.theme = 'bento'
 
+  # Caching (empty the `tmp` directory to clear the cache)
+  c.cache_responses = true
+  c.cache_expiry = 900 # seconds
+
   groups = %w(
     WellingtonPhotographyMeetupGroup
     WelliDotNet
