@@ -25,6 +25,33 @@ Almanack.config do |c|
     WellingtonPhotographyMeetupGroup
     WelliDotNet
     designpro
+    Wellington-Adobe-Web-Technology-Meetup
+    Wlg-AUG
+    Wellington-Cloud-Computing-User-Group
+    kiwi-code-retreat
+    EdTech-Wellington-Meetup
+    ember-js-wellington
+    Enspiral-Dev-Academy-Meetup
+    Dev-Meet-Ups
+    Game-Developers-of-Wellington
+    hackpack
+    Hackers-and-Founders-Wellington
+    NetSquared-Wellington
+    Node-js-Wellington
+    Open-Coffee-Club-Meetup
+    New-Zealand-OpenStack-User-Group
+    OWASP-New-Zealand-Chapter-Wellington
+    PHP-Usergroup-Wellington
+    playing-with-code-wellington
+    PyLadies-Wellington
+    NZPUG-Wellington
+    SilverStripe-Wellington-Meetup-Group
+    StartupGarage
+    Test-Professionals-Network-Wellington
+    Wellington-Drupal-Meetup
+    Wellington-Functional-Programming-Meetup
+    WellingtonJS
+    wellingtonmakerspace
   )
 
   groups.each do |group|
